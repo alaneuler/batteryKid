@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		7C57385A29739A9D00320731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57385929739A9D00320731 /* AppDelegate.swift */; };
-		7C57385C29739A9D00320731 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57385B29739A9D00320731 /* ViewController.swift */; };
 		7C57385E29739A9E00320731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C57385D29739A9E00320731 /* Assets.xcassets */; };
 		7C57386129739A9E00320731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C57385F29739A9E00320731 /* Main.storyboard */; };
+		7C5738692973C4B000320731 /* ProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5738682973C4B000320731 /* ProViewController.swift */; };
+		7C57386B2973D16600320731 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57386A2973D16600320731 /* EventMonitor.swift */; };
+		7C57386F2973F39400320731 /* LiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57386E2973F39400320731 /* LiteViewController.swift */; };
+		7C5738712973F4D900320731 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5738702973F4D900320731 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C57385629739A9D00320731 /* batteryKid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batteryKid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C57385929739A9D00320731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C57385B29739A9D00320731 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7C57385D29739A9E00320731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C57386029739A9E00320731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C57386229739A9E00320731 /* batteryKid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = batteryKid.entitlements; sourceTree = "<group>"; };
+		7C5738682973C4B000320731 /* ProViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProViewController.swift; sourceTree = "<group>"; };
+		7C57386A2973D16600320731 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		7C57386E2973F39400320731 /* LiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteViewController.swift; sourceTree = "<group>"; };
+		7C5738702973F4D900320731 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 		7C57384D29739A9D00320731 = {
 			isa = PBXGroup;
 			children = (
+				7C57387229741BEC00320731 /* common */,
 				7C57385829739A9D00320731 /* batteryKid */,
 				7C57385729739A9D00320731 /* Products */,
 			);
@@ -53,12 +60,22 @@
 			isa = PBXGroup;
 			children = (
 				7C57385929739A9D00320731 /* AppDelegate.swift */,
-				7C57385B29739A9D00320731 /* ViewController.swift */,
 				7C57385D29739A9E00320731 /* Assets.xcassets */,
 				7C57385F29739A9E00320731 /* Main.storyboard */,
 				7C57386229739A9E00320731 /* batteryKid.entitlements */,
+				7C57386A2973D16600320731 /* EventMonitor.swift */,
+				7C5738682973C4B000320731 /* ProViewController.swift */,
+				7C57386E2973F39400320731 /* LiteViewController.swift */,
+				7C5738702973F4D900320731 /* BaseViewController.swift */,
 			);
 			path = batteryKid;
+			sourceTree = "<group>";
+		};
+		7C57387229741BEC00320731 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C57385C29739A9D00320731 /* ViewController.swift in Sources */,
+				7C5738712973F4D900320731 /* BaseViewController.swift in Sources */,
+				7C57386F2973F39400320731 /* LiteViewController.swift in Sources */,
+				7C57386B2973D16600320731 /* EventMonitor.swift in Sources */,
+				7C5738692973C4B000320731 /* ProViewController.swift in Sources */,
 				7C57385A29739A9D00320731 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +295,8 @@
 				DEVELOPMENT_TEAM = 644K7355LF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -302,6 +324,8 @@
 				DEVELOPMENT_TEAM = 644K7355LF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
