@@ -1,9 +1,4 @@
-//
-//  BaseViewController.swift
-//  batteryKid
-//
 //  Created by Alaneuler Erving on 2023/1/15.
-//
 
 import Cocoa
 
@@ -15,6 +10,9 @@ class BaseViewController: NSViewController {
   
   @IBAction func quit(_ sender: NSButton) {
     NSApplication.shared.terminate(sender)
+  }
+  
+  func updateSoc(_ soc: String) {
   }
   
   static func controller(_ identifier: String) -> BaseViewController {

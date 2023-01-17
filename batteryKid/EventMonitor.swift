@@ -1,9 +1,4 @@
-//
-//  EventMonitor.swift
-//  batteryKid
-//
 //  Created by Alaneuler Erving on 2023/1/15.
-//
 
 import Cocoa
 

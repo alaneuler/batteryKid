@@ -1,22 +1,36 @@
-//
-//  AppDelegate.swift
-//  batteryKid
-//
 //  Created by Alaneuler Erving on 2023/1/15.
-//
 
 import Cocoa
 
+/// Used as DTO
+struct Result {
+  var output = "default"
+}
+
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
   let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
   let popover = NSPopover()
-  var proViewController: NSViewController?
-  var liteViewController: NSViewController?
+  var proViewController: BaseViewController?
+  var liteViewController: BaseViewController?
   var eventMonitor: EventMonitor?
+  
+  var helper: HelperProtocol?
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
+    let helperw = RemoteHelper.INSTANCE.getRemote()
+    var result = Result()
+    if let helperu = helperw {
+      helperu.getVersion(completion: {
+        version in
+        result.output = version
+      })
+      sleep(1)
+      fputs(result.output, stdout)
+      exit(0)
+    }
+    
+    
     if let button = statusItem.button {
       button.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
       button.action = #selector(togglePopover(_:))
@@ -32,6 +46,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         strongSelf.closePopover(event)
       }
     })
+    
+//    let controller = cast()
+//    helper?.getVersion(completion: { [weak self]
+//      version in
+//      sleep(1)
+//      self?.proViewController?.updateSoc(version)
+//    })
+  }
+  
+  func cast() -> BaseViewController {
+    return self.popover.contentViewController as! BaseViewController
   }
   
   func toggleLitePro(_ sender: Any?) {
