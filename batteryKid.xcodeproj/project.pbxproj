@@ -27,6 +27,8 @@
 		7C63FE93297581FE009647F0 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63FE92297581FE009647F0 /* SMC.swift */; };
 		7C63FE9529758561009647F0 /* RemoteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63FE9429758561009647F0 /* RemoteHelper.swift */; };
 		7C63FE992976C806009647F0 /* me.alaneuler.batteryKid.PrivilegeHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C63FE7C29757FDA009647F0 /* me.alaneuler.batteryKid.PrivilegeHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7CB8976829855A9700B0BF94 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8976729855A9700B0BF94 /* Battery.swift */; };
+		7CB8976A29855C8900B0BF94 /* BatteryFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8976929855C8900B0BF94 /* BatteryFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +77,8 @@
 		7C63FE9729758891009647F0 /* Launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
 		7C63FE9A2976C81D009647F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C63FEB72976D38F009647F0 /* uninstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = uninstall.sh; sourceTree = "<group>"; };
+		7CB8976729855A9700B0BF94 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
+		7CB8976929855C8900B0BF94 /* BatteryFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				7C5738702973F4D900320731 /* BaseViewController.swift */,
 				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
 				7C63FE9A2976C81D009647F0 /* Info.plist */,
+				7CB8976729855A9700B0BF94 /* Battery.swift */,
+				7CB8976929855C8900B0BF94 /* BatteryFinder.swift */,
 			);
 			path = batteryKid;
 			sourceTree = "<group>";
@@ -249,11 +255,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C5738712973F4D900320731 /* BaseViewController.swift in Sources */,
+				7CB8976A29855C8900B0BF94 /* BatteryFinder.swift in Sources */,
 				7C63FE842975802A009647F0 /* Logger.swift in Sources */,
 				7C57386F2973F39400320731 /* LiteViewController.swift in Sources */,
 				7C57386B2973D16600320731 /* EventMonitor.swift in Sources */,
 				7C5738692973C4B000320731 /* ProViewController.swift in Sources */,
 				7C63FE8D2975818E009647F0 /* RemoteApplicationProtocol.swift in Sources */,
+				7CB8976829855A9700B0BF94 /* Battery.swift in Sources */,
 				7C63FE8729758053009647F0 /* HelperProtocol.swift in Sources */,
 				7C63FE9529758561009647F0 /* RemoteHelper.swift in Sources */,
 				7C57385A29739A9D00320731 /* AppDelegate.swift in Sources */,

@@ -18,19 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var helper: HelperProtocol?
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    let helperw = RemoteHelper.INSTANCE.getRemote()
-    var result = Result()
-    if let helperu = helperw {
-      helperu.getVersion(completion: {
-        version in
-        result.output = version
-      })
-      sleep(1)
-      fputs(result.output, stdout)
-      exit(0)
-    }
-    
-    
+    initInterface()
+    initSMC()
+  }
+  
+  private func initInterface() {
     if let button = statusItem.button {
       button.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
       button.action = #selector(togglePopover(_:))
@@ -46,17 +38,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         strongSelf.closePopover(event)
       }
     })
-    
-//    let controller = cast()
-//    helper?.getVersion(completion: { [weak self]
-//      version in
-//      sleep(1)
-//      self?.proViewController?.updateSoc(version)
-//    })
   }
   
-  func cast() -> BaseViewController {
-    return self.popover.contentViewController as! BaseViewController
+  private func initSMC() {
+    self.helper = RemoteHelper.INSTANCE.getRemote()
   }
   
   func toggleLitePro(_ sender: Any?) {

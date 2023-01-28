@@ -6,6 +6,8 @@ import Foundation
 class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
   static let CHARGING_KEY_STR: String = "CH0B"
   
+  static let SOC_KEY_STR: String = "SBAS"
+  
   // TODO: Add update functionality.
   static let VERSION = "0.0.1"
   
@@ -16,7 +18,7 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
     let smcKey = SMCKit.getKey(PrivilegeHelper.CHARGING_KEY_STR, type: DataTypes.UInt8)
     let stat = readSMCBytes(key: smcKey)
     if stat == nil {
-      Logger.error("Reading value from SMC failed!")
+      Logger.error("Reading charging stat from SMC failed!")
       completion(false, false)
     } else {
       let val = stat!.0

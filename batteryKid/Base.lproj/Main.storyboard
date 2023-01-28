@@ -186,15 +186,15 @@
                                     <action selector="toggleLitePro:" target="XfG-lQ-9wD" id="mC9-cb-lch"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w0M-Ut-cHm">
-                                <rect key="frame" x="118" y="57" width="75" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-Zy-UB9">
+                                <rect key="frame" x="83" y="53" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pux-Iz-EM7">
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M1K-Eo-0if">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="fuck:" target="XfG-lQ-9wD" id="7bh-V8-YJV"/>
+                                    <action selector="fuck:" target="XfG-lQ-9wD" id="Bdu-iG-QrO"/>
                                 </connections>
                             </button>
                         </subviews>

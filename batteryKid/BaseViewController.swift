@@ -12,9 +12,6 @@ class BaseViewController: NSViewController {
     NSApplication.shared.terminate(sender)
   }
   
-  func updateSoc(_ soc: String) {
-  }
-  
   static func controller(_ identifier: String) -> BaseViewController {
     let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
     let identifier = NSStoryboard.SceneIdentifier(identifier)

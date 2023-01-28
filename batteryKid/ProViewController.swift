@@ -13,19 +13,21 @@ class ProViewController: BaseViewController {
     // Do view setup here.
   }
   
-  override func updateSoc(_ soc: String) {
-    socPercent.stringValue = soc
+  func switchedToThis() {
+    
+  }
+  
+  func updateSoc(_ soc: String) {
+    DispatchQueue.main.async {
+      self.socPercent.stringValue = soc
+    }
   }
   
   @IBAction func fuck(_ sender: NSButton) {
-//    updateSoc("fuck")
-    let helper = RemoteHelper.INSTANCE.getRemote()
-    RemoteHelper.INSTANCE.getRemote()?.getVersion(completion: { [weak self]
-      version in
-      sleep(1)
-      fputs(version, stdout)
-//      self?.socPercent.stringValue = version
-    })
+    let bf = BatteryFinder()
+    if let battery = bf.getInternalBattery() {
+      updateSoc(String(battery.charge!))
+    }
   }
   
   @IBAction func toggleCharging(_ sender: NSButton) {
