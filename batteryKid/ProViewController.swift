@@ -36,10 +36,12 @@ class ProViewController: BaseViewController {
       _ in
       self.updateStat()
     }
+    Logger.info("ProMode activated.")
   }
   
   override func deactivate() {
     self.timer.invalidate()
+    Logger.info("ProMode deactivated.")
   }
   
   func updateStat() {

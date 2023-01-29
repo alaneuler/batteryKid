@@ -10,6 +10,8 @@ class LiteViewController: BaseViewController {
   
   var chargeLimit: Double = 70
   var timer: Timer!
+  
+  var currentStat: Int = -1
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,10 +26,12 @@ class LiteViewController: BaseViewController {
       _ in
       self.updateAndMonitor()
     }
+    Logger.info("LiteMode activated.")
   }
   
   override func deactivate() {
     self.timer.invalidate()
+    Logger.info("LiteMode deactivated.")
   }
   
   func updateAndMonitor() {
@@ -35,50 +39,69 @@ class LiteViewController: BaseViewController {
     monitorStat()
   }
   
+  func changeStatTo(newStat: Int) {
+    if currentStat == newStat {
+      return
+    }
+    
+    currentStat = newStat
+    if newStat == 0 {
+      helper.enablePowerAdapter(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Connect power adapter failed!")
+        }
+      })
+      helper.enableCharging(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Enable charging failed!")
+        }
+      })
+    } else if newStat == 1 {
+      helper.enablePowerAdapter(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Connect power adapter failed!")
+        }
+      })
+      helper.disableCharging(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Disable charging failed!")
+        }
+      })
+    } else if newStat == 2 {
+      helper.disablePowerAdapter(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Disconnect power adapter failed!")
+        }
+      })
+      helper.disableCharging(completion: {
+        code in
+        if code > 1 {
+          Logger.error("Disable charging failed!")
+        }
+      })
+    }
+  }
+  
   func monitorStat() {
+    if helper == nil {
+      return
+    }
+    
     if let battery = BatteryFinder().getBattery() {
       if let soc = battery.charge {
         let upLimit = chargeLimit + LiteViewController.DEVIATION
         let bottomLimit = chargeLimit - LiteViewController.DEVIATION
         if soc > upLimit {
-          helper.disablePowerAdapter(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Disconnect power adapter failed!")
-            }
-          })
-          helper.disableCharging(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Disable charging failed!")
-            }
-          })
+          changeStatTo(newStat: 2)
         } else if soc < bottomLimit {
-          helper.enablePowerAdapter(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Connect power adapter failed!")
-            }
-          })
-          helper.enableCharging(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Enable charging failed!")
-            }
-          })
+          changeStatTo(newStat: 0)
         } else {
-          helper.enablePowerAdapter(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Connect power adapter failed!")
-            }
-          })
-          helper.disableCharging(completion: {
-            code in
-            if code > 1 {
-              Logger.error("Disable charging failed!")
-            }
-          })
+          changeStatTo(newStat: 1)
         }
       }
     }
@@ -93,7 +116,6 @@ class LiteViewController: BaseViewController {
   @IBAction func sliderValueChanged(_ sender: NSSlider) {
     var value = sender.stringValue
     chargeLimit = Double(value)!
-    Logger.info("\(chargeLimit)")
     
     if let index = value.firstIndex(of: ".") {
       value = String(value[..<index])
