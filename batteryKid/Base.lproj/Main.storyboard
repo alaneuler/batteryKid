@@ -128,9 +128,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-jD-KwN">
-                                <rect key="frame" x="63" y="71" width="21" height="15"/>
+                                <rect key="frame" x="63" y="71" width="27" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="On" id="HkA-tO-Wqy">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="OFF" id="HkA-tO-Wqy">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -146,6 +146,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="powerplug.fill" catalog="system" id="tdA-vF-fxD"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryJ-6A-TAP" userLabel="powerAdapterButton">
+                                <rect key="frame" x="21" y="22" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="J1M-Jz-eeO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="togglePowerAdapter:" target="XfG-lQ-9wD" id="vYy-tE-pqQ"/>
+                                </connections>
+                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-Hv-4l7">
                                 <rect key="frame" x="63" y="39" width="99" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -186,28 +197,21 @@
                                     <action selector="toggleLitePro:" target="XfG-lQ-9wD" id="mC9-cb-lch"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-Zy-UB9">
-                                <rect key="frame" x="83" y="53" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M1K-Eo-0if">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="fuck:" target="XfG-lQ-9wD" id="Bdu-iG-QrO"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="chargingBulb" destination="stq-Eq-gvO" id="edX-O1-AsW"/>
+                        <outlet property="chargingButton" destination="zbH-rg-JiJ" id="Q4j-7X-Bo9"/>
                         <outlet property="chargingStatus" destination="fOR-jD-KwN" id="zuG-ge-ew3"/>
+                        <outlet property="powerAdapterBulb" destination="058-nz-8I1" id="RiR-O9-ejs"/>
+                        <outlet property="powerAdapterButton" destination="ryJ-6A-TAP" id="M7c-do-fmG"/>
+                        <outlet property="powerAdapterStatus" destination="Rgz-g6-9tR" id="oqy-8r-NgT"/>
                         <outlet property="socPercent" destination="psw-57-cWv" id="sAf-TJ-hNJ"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="165"/>
+            <point key="canvasLocation" x="146" y="164.5"/>
         </scene>
         <!--Lite View Controller-->
         <scene sceneID="0ea-Bu-Ajr">
@@ -253,7 +257,10 @@
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ee7-py-jLT">
                                 <rect key="frame" x="18" y="10" width="198" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="uEZ-XJ-yEy"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="70" tickMarkPosition="above" sliderType="linear" id="uEZ-XJ-yEy"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" target="5hr-td-CsV" id="1h2-hx-IWf"/>
+                                </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-Xl-Yxq">
                                 <rect key="frame" x="18" y="42" width="91" height="16"/>
@@ -265,7 +272,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1T8-im-cze">
-                                <rect key="frame" x="221" y="19" width="32" height="16"/>
+                                <rect key="frame" x="221" y="19" width="40" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="70%" id="JdP-t3-fZO">
                                     <font key="font" metaFont="system"/>
@@ -286,6 +293,10 @@
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="sliderValue" destination="1T8-im-cze" id="Fnb-9U-uyx"/>
+                        <outlet property="socPercent" destination="kRl-FV-Lv6" id="zH4-f2-7ST"/>
+                    </connections>
                 </viewController>
                 <customObject id="Z9a-t5-LOQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

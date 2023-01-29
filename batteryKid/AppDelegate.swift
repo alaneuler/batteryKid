@@ -2,24 +2,16 @@
 
 import Cocoa
 
-/// Used as DTO
-struct Result {
-  var output = "default"
-}
-
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
   let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
   let popover = NSPopover()
-  var proViewController: BaseViewController?
-  var liteViewController: BaseViewController?
+  var proViewController: BaseViewController!
+  var liteViewController: BaseViewController!
   var eventMonitor: EventMonitor?
-  
-  var helper: HelperProtocol?
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     initInterface()
-    initSMC()
   }
   
   private func initInterface() {
@@ -30,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     proViewController = ProViewController.getController()
     liteViewController = LiteViewController.getController()
+    popover.contentViewController = liteViewController
     
-    popover.contentViewController = proViewController
     eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: {
       [weak self] event in
       if let strongSelf = self, strongSelf.popover.isShown {
@@ -40,14 +32,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     })
   }
   
-  private func initSMC() {
-    self.helper = RemoteHelper.INSTANCE.getRemote()
-  }
-  
   func toggleLitePro(_ sender: Any?) {
     if popover.contentViewController == proViewController {
+      proViewController.deactivate()
+      liteViewController.activate()
       popover.contentViewController = liteViewController
     } else {
+      liteViewController.deactivate()
+      proViewController.activate()
       popover.contentViewController = proViewController
     }
   }

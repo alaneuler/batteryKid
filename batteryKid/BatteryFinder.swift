@@ -8,8 +8,6 @@ public class BatteryFinder {
   private var internalChecked: Bool = false
   private var hasInternalBattery: Bool = false
 
-  public init() {}
-
   public var batteryPresent: Bool {
     get {
       if !self.internalChecked {
