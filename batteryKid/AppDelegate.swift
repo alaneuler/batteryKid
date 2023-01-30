@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   private func initInterface() {
     if let button = statusItem.button {
-      button.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+      let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+      image?.size = NSMakeSize(19.0, 19.0)
+      button.image = image
       button.action = #selector(togglePopover(_:))
     }
     
