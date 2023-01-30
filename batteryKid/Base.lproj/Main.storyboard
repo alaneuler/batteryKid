@@ -175,7 +175,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button toolTip="Quit batteryKid" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-Te-JPP">
+                            <button toolTip="Quit batteryKid" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-Te-JPP" userLabel="proModeQuit">
                                 <rect key="frame" x="163" y="124" width="13" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="power" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WdZ-JA-NnS">
@@ -280,7 +280,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button toolTip="Quit batteryKid" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glR-wG-foB">
+                            <button toolTip="Quit batteryKid" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glR-wG-foB" userLabel="liteModeQuit">
                                 <rect key="frame" x="238" y="85" width="13" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="power" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yKu-xf-gMu">
@@ -288,7 +288,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="quit:" target="XfG-lQ-9wD" id="Fps-Z8-zpd"/>
+                                    <action selector="quit:" target="5hr-td-CsV" id="aUS-DH-NHH"/>
                                 </connections>
                             </button>
                         </subviews>
