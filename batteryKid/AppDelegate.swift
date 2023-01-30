@@ -4,6 +4,10 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
+  static let CURRENT_VIEW_CONTROLLER_KEY: String = "current_view_controller"
+  static let PRO_VIEW_CONTROLLER: String = "proView"
+  static let LITE_VIEW_CONTROLLER: String = "liteView"
+  
   let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
   let popover = NSPopover()
   var proViewController: BaseViewController!
@@ -22,7 +26,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     proViewController = ProViewController.getController()
     liteViewController = LiteViewController.getController()
-    popover.contentViewController = liteViewController
+    if let storedView = UserDefaults.standard.string(forKey: AppDelegate.CURRENT_VIEW_CONTROLLER_KEY) {
+      if storedView == AppDelegate.PRO_VIEW_CONTROLLER {
+        popover.contentViewController = proViewController
+        proViewController.activate()
+      }
+    }
+    if popover.contentViewController == nil {
+      // Defaults to lite view controller.
+      popover.contentViewController = liteViewController
+      liteViewController.activate()
+    }
     
     eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: {
       [weak self] event in
@@ -37,10 +51,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       proViewController.deactivate()
       liteViewController.activate()
       popover.contentViewController = liteViewController
+      UserDefaults.standard.set(AppDelegate.LITE_VIEW_CONTROLLER, forKey: AppDelegate.CURRENT_VIEW_CONTROLLER_KEY)
+      Logger.info("Stored \(AppDelegate.LITE_VIEW_CONTROLLER)")
     } else {
       liteViewController.deactivate()
       proViewController.activate()
       popover.contentViewController = proViewController
+      UserDefaults.standard.set(AppDelegate.PRO_VIEW_CONTROLLER, forKey: AppDelegate.CURRENT_VIEW_CONTROLLER_KEY)
+      Logger.info("Stored \(AppDelegate.PRO_VIEW_CONTROLLER)")
     }
   }
   

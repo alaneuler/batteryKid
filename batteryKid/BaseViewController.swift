@@ -9,6 +9,12 @@ class BaseViewController: NSViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  }
+  
+  func activate() {
+    if helper != nil {
+      return
+    }
     
     if let rh = RemoteHelper.INSTANCE.getRemote() {
       helper = rh
@@ -16,8 +22,7 @@ class BaseViewController: NSViewController {
       Logger.error("Getting RemoteHelper error!")
     }
   }
-  
-  func activate() {}
+
   func deactivate() {}
   
   @IBAction func toggleLitePro(_ sender: NSButton) {

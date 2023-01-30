@@ -3,7 +3,6 @@
 import Cocoa
 
 class ProViewController: BaseViewController {
-  
   static let ON_STR: String = "ON"
   static let OFF_STR: String = "OFF"
   static let CONNECTED_STR: String = "Connected"
@@ -25,32 +24,45 @@ class ProViewController: BaseViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     activate()
     Logger.info("ProView loaded.")
   }
   
   override func activate() {
+    super.activate()
+    
     updateStat()
-    self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
-      _ in
-      self.updateStat()
+    if self.timer == nil {
+      self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
+        _ in
+        self.updateStat()
+      }
+      Logger.info("Timer for pro mode set.")
+    } else {
+      Logger.info("Timer already set, just updating the pro mode UI.")
     }
-    Logger.info("ProMode activated.")
+    Logger.info("Pro mode activated.")
   }
   
   override func deactivate() {
     self.timer.invalidate()
+    self.timer = nil
     Logger.info("ProMode deactivated.")
   }
   
   func updateStat() {
+    // If UI is not already initialized, skip the upadting.
+    if self.chargingButton == nil {
+      return
+    }
+    
     updateSoc()
-    helper?.chargingStat(completion: {
+    helper.chargingStat(completion: {
       success, stat in
       self.updateChargingStat(success: success, stat: stat)
     })
-    helper?.powerAdapterStat(completion: {
+    helper.powerAdapterStat(completion: {
       success, stat in
       self.updatePowerAdapterStat(success: success, stat: stat)
     })
@@ -58,7 +70,7 @@ class ProViewController: BaseViewController {
   
   override func doUpdateSoc(_ soc: String) {
     DispatchQueue.main.async {
-      self.socPercent.stringValue = soc
+      self.socPercent?.stringValue = soc
     }
   }
   
