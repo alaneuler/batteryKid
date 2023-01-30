@@ -121,7 +121,7 @@ class LiteViewController: BaseViewController {
   }
   
   func monitorStat() {
-    Logger.info("Monitoring...")
+    // Logger.info("Monitoring...")
     if let battery = BatteryFinder().getBattery() {
       if let soc = battery.charge {
         let upLimit = chargeLimit + LiteViewController.DEVIATION
