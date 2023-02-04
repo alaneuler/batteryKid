@@ -5,7 +5,6 @@ batteries](https://www.apple.com/batteries/maximizing-performance/):
 > Avoid completely draining the battery and avoid keeping it fully charged for long periods of time. The optimal operating range for Lithium-ion batteries is between 30% and 80% of their capacity.
 
 However, for those who're using MacBooks as their daily workhourse, chances are that the batteries are always 100% for a long period of time.
-
 This small menu bar tool can assist in maintaining the battery health of your MacBook (only compatible with Apple Silicon at present). It has two modes:
 1. Lite Mode (Recommended): this mode maintains the State of Charge (SoC) within a range of ±2% of the user-selected value.
 2. Pro Mode: this mode exposes the switchs utilized by the lite mode.
