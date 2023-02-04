@@ -20,13 +20,9 @@ This tiny menu bar tool can help you keep the battery in your MacBook in a healt
 ## Screenshot
 ### Lite Mode
 <img width="475" alt="image" src="https://user-images.githubusercontent.com/8054939/216766125-5c41838a-54d1-421e-8095-a04970709662.png">
+
 ### Pro Mode
 <img width="475" alt="image" src="https://user-images.githubusercontent.com/8054939/216766157-367337a3-9046-478e-adaa-5c470b9c28f1.png">
-
-<img width="328" alt="image" 
-src="https://user-images.githubusercontent.com/8054939/204074543-e33cef53-77d8-4f31-b610-4f028c6eda82.png">
-<img width="328" alt="image" 
-src="https://user-images.githubusercontent.com/8054939/204074570-4e361b83-62a4-4b64-af40-7f2c566ecbf7.png">
 
 ## Uninstalling
 1. Quit the app from menu bar
