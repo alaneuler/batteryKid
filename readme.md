@@ -1,4 +1,4 @@
-# macOSBatteryManager
+# batteryKid
 To [prolong Li-ion based 
 batteries](https://www.apple.com/batteries/maximizing-performance/):
 
@@ -9,11 +9,11 @@ batteries is between 30% and 80% power.
 However, for those who're using MacBooks as their daily workhourse, chances 
 are that the batteries are always 100% for a long period of time.
 
-This tiny menu bar tool can help you maintain battery of your MacBook in a healthier state. Supports currently only Application Silicon. It has two modes:
+This tiny menu bar tool can help you keep the battery in your MacBook in a healthier state. Supports currently only Application Silicon. It has two modes:
 1. Lite Mode (Recommended): this mode maintains the SoC (State of Charge) in user selected value (±2).
 2. Pro Mode: this mode exposes the switchs underneath the lite mode.
-  - Charging switch
-  - Power source (AC) switch
+   - Charging switch
+   - Power source (AC) switch
 
 Note: After toggling the charging switch, it may take some time (about 20 seconds or so) for built-in battery status to change. Your battery is in fact already in charging state or non-charging state.
 
