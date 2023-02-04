@@ -22,7 +22,7 @@ This small menu bar tool can assist in maintaining the battery health of your Ma
 <img width="475" alt="image" src="https://user-images.githubusercontent.com/8054939/216766157-367337a3-9046-478e-adaa-5c470b9c28f1.png">
 
 ### Acknowledgements
-I would like to extend my gratitude to my [girlfriend](https://github.com/wangxingyu000) for designing the user interface and icons.
+I would like to extend my gratitude to my girlfriend for designing the user interface and icons.
 
 ## Uninstalling
 1. Quit the app from menu bar
