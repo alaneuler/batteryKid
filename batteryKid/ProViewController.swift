@@ -34,7 +34,7 @@ class ProViewController: BaseViewController {
     
     updateStat()
     if self.timer == nil {
-      self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
+      self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
         self.updateStat()
       }

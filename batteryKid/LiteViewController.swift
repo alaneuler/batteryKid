@@ -3,17 +3,16 @@
 import Cocoa
 
 class LiteViewController: BaseViewController {
-  static let DEVIATION: Double = 5.0
+  static let DEVIATION: Double = 2.0
   static let USER_SET_LIMIT_VALUE_KEY: String = "user_set_limit_value"
   
   @IBOutlet weak var socPercent: NSTextField!
   @IBOutlet weak var sliderValue: NSTextField!
   @IBOutlet weak var slider: NSSlider!
+  @IBOutlet weak var statusLabel: NSTextField!
   
   var chargeLimit: Double = 70
   var timer: Timer!
-  
-  var currentStat: Int = -1
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -37,7 +36,7 @@ class LiteViewController: BaseViewController {
     
     updateAndMonitor()
     if timer == nil {
-      self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
+      self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
         self.updateAndMonitor()
       }
@@ -61,63 +60,94 @@ class LiteViewController: BaseViewController {
     // Only update the UI if UI is already initialized.
     if self.socPercent != nil {
       updateSoc()
+      updateUiStat()
+    }
+  }
+
+  private func updateUiStat() {
+    helper.chargingStat(completion: {
+      success1, stat1 in
+      if success1 {
+        self.helper.powerAdapterStat(completion: {
+          success2, stat2 in
+          if success2 {
+            self.doUpdateUiStat(chargingStat: stat1, powerAdapterStat: stat2)
+          }
+        })
+      }
+    })
+  }
+  
+  private func doUpdateUiStat(chargingStat: Bool, powerAdapterStat: Bool) {
+    if chargingStat, powerAdapterStat {
+      DispatchQueue.main.async {
+        self.statusLabel.stringValue = "Charging"
+      }
+    } else if !chargingStat, powerAdapterStat {
+      DispatchQueue.main.async {
+        self.statusLabel.stringValue = "On Hold"
+      }
+    } else if !chargingStat, !powerAdapterStat {
+      DispatchQueue.main.async {
+        self.statusLabel.stringValue = "Discharging"
+      }
     }
   }
   
-  func changeStatTo(newStat: Int) {
-    if currentStat == newStat {
-      return
-    }
-    
-    currentStat = newStat
-    if newStat == 0 {
-      // 0 means need charging, thus connect the power adapter and enable charging.
-      Logger.info("Connect power adapter and enable charging.")
-      helper.enablePowerAdapter(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Connect power adapter failed!")
-        }
-      })
-      helper.enableCharging(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Enable charging failed!")
-        }
-      })
-    } else if newStat == 1 {
-      // 1 means on-hold, thus connect the power adapter and disable charging.
-      Logger.info("Connect power adapter and disable charging.")
-      helper.enablePowerAdapter(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Connect power adapter failed!")
-        }
-      })
-      helper.disableCharging(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Disable charging failed!")
-        }
-      })
-    } else if newStat == 2 {
-      // 2 means discharge, thus disconnect the power adapter and disable charging.
-      Logger.info("Disconnect power adapter and disable charging.")
-      helper.disablePowerAdapter(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Disconnect power adapter failed!")
-        }
-      })
-      helper.disableCharging(completion: {
-        code in
-        if code > 1 {
-          Logger.error("Disable charging failed!")
-        }
-      })
-    } else {
-      Logger.error("Unknown new stat in lite mode: \(newStat)")
-    }
+  private func enablePowerAdapterAccordingly() {
+    helper.powerAdapterStat(completion: {
+      success, stat in
+      if success, !stat {
+        self.helper.enablePowerAdapter(completion: {
+          code in
+          if code > 1 {
+            Logger.error("Connect power adapter failed!")
+          }
+        })
+      }
+    })
+  }
+  
+  private func disablePowerAdapterAccordingly() {
+    helper.powerAdapterStat(completion: {
+      success, stat in
+      if success, stat {
+        self.helper.disablePowerAdapter(completion: {
+          code in
+          if code > 1 {
+            Logger.error("Disconnect power adapter failed!")
+          }
+        })
+      }
+    })
+  }
+  
+  private func enableChargingAccordingly() {
+    helper.chargingStat(completion: {
+      success, stat in
+      if success, !stat {
+        self.helper.enableCharging(completion: {
+          code in
+          if code > 1 {
+            Logger.error("Enable charging failed!")
+          }
+        })
+      }
+    })
+  }
+  
+  private func disableChargingAccordingly() {
+    helper.chargingStat(completion: {
+      success, stat in
+      if success, stat {
+        self.helper.disableCharging(completion: {
+          code in
+          if code > 1 {
+            Logger.error("Disable charging failed!")
+          }
+        })
+      }
+    })
   }
   
   func monitorStat() {
@@ -127,11 +157,17 @@ class LiteViewController: BaseViewController {
         let upLimit = chargeLimit + LiteViewController.DEVIATION
         let bottomLimit = chargeLimit - LiteViewController.DEVIATION
         if soc > upLimit {
-          changeStatTo(newStat: 2)
+          // Disconnect the power adapter and disable charging.
+          disablePowerAdapterAccordingly()
+          disableChargingAccordingly()
         } else if soc < bottomLimit {
-          changeStatTo(newStat: 0)
+          // Connect the power adapter and enable charging.
+          enablePowerAdapterAccordingly()
+          enableChargingAccordingly()
         } else {
-          changeStatTo(newStat: 1)
+          // Connect the power adapter and disable charging.
+          enablePowerAdapterAccordingly()
+          disableChargingAccordingly()
         }
       }
     }

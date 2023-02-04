@@ -218,11 +218,11 @@
             <objects>
                 <viewController storyboardIdentifier="LiteViewController" id="5hr-td-CsV" customClass="LiteViewController" customModule="batteryKid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="KDc-hw-R0g">
-                        <rect key="frame" x="0.0" y="0.0" width="259" height="105"/>
+                        <rect key="frame" x="0.0" y="0.0" width="259" height="130"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4UR-iJ-ODo">
-                                <rect key="frame" x="146" y="72" width="61" height="20"/>
+                                <rect key="frame" x="146" y="97" width="61" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Lite Mode" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="lI5-Kf-nKG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -233,7 +233,7 @@
                                 </connections>
                             </button>
                             <textField toolTip="State of Charge" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i21-yF-FTd">
-                                <rect key="frame" x="12" y="76" width="35" height="16"/>
+                                <rect key="frame" x="12" y="101" width="35" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="SoC:" id="GVL-Qg-nWK">
                                     <font key="font" metaFont="systemBold"/>
@@ -242,7 +242,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRl-FV-Lv6">
-                                <rect key="frame" x="48" y="76" width="32" height="16"/>
+                                <rect key="frame" x="48" y="101" width="32" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="70%" id="FaE-av-pYK">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -251,11 +251,11 @@
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="b2P-Zm-2Rs">
-                                <rect key="frame" x="13" y="65" width="235" height="5"/>
+                                <rect key="frame" x="13" y="90" width="235" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ee7-py-jLT">
-                                <rect key="frame" x="15" y="6" width="190" height="28"/>
+                                <rect key="frame" x="15" y="31" width="190" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="70" tickMarkPosition="below" sliderType="linear" id="uEZ-XJ-yEy"/>
                                 <connections>
@@ -263,7 +263,7 @@
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-Xl-Yxq">
-                                <rect key="frame" x="13" y="39" width="91" height="16"/>
+                                <rect key="frame" x="13" y="64" width="91" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Charge Limit:" id="b6s-Mq-btU">
                                     <font key="font" metaFont="systemBold"/>
@@ -272,7 +272,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1T8-im-cze">
-                                <rect key="frame" x="209" y="15" width="40" height="16"/>
+                                <rect key="frame" x="209" y="40" width="40" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="70%" id="JdP-t3-fZO">
                                     <font key="font" metaFont="system"/>
@@ -281,7 +281,7 @@
                                 </textFieldCell>
                             </textField>
                             <button toolTip="Quit batteryKid" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glR-wG-foB" userLabel="liteModeQuit">
-                                <rect key="frame" x="238" y="85" width="13" height="13"/>
+                                <rect key="frame" x="238" y="110" width="13" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="power" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yKu-xf-gMu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -291,12 +291,31 @@
                                     <action selector="quit:" target="5hr-td-CsV" id="aUS-DH-NHH"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-ta-OIr">
+                                <rect key="frame" x="13" y="12" width="54" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Status: " id="pbJ-4i-nhK">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-cq-xfa">
+                                <rect key="frame" x="67" y="12" width="57" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Unknown" id="NKE-o0-2M5">
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="slider" destination="Ee7-py-jLT" id="6Rw-Wx-qop"/>
                         <outlet property="sliderValue" destination="1T8-im-cze" id="Fnb-9U-uyx"/>
                         <outlet property="socPercent" destination="kRl-FV-Lv6" id="zH4-f2-7ST"/>
+                        <outlet property="statusLabel" destination="2ZW-cq-xfa" id="7W9-7p-yxF"/>
                     </connections>
                 </viewController>
                 <customObject id="Z9a-t5-LOQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
