@@ -15,7 +15,7 @@ This tiny menu bar tool can help you keep the battery in your MacBook in a healt
    - Charging switch
    - Power source (AC) switch
 
-Note: After toggling the charging switch, it may take some time (about 20 seconds or so) for built-in battery status to change. Your battery is in fact already in charging state or non-charging state.
+> Note: After toggling the charging switch, it may take some time (about 20 seconds or so) for built-in battery status to change. Your battery is in fact already in charging state or non-charging state.
 
 ## Screenshot
 <img width="328" alt="image" 
