@@ -12,8 +12,8 @@ This small menu bar tool can assist in maintaining the battery health of your Ma
    - Power source (AC) switch
 
 **Note:**
-1. batteryKid requires the installation of a privileged helper for full functionality.
-2. After toggling the charging switch, it may take around 20 seconds for the built-in battery status to reflect the change. The battery is already in a charging or non-charging state during this time.
+- batteryKid requires the installation of a privileged helper for full functionality.
+- After toggling the charging switch, it may take around 20 seconds for the built-in battery status to reflect the change. The battery is already in a charging or non-charging state during this time.
 
 ## Screenshot
 ### Lite Mode
