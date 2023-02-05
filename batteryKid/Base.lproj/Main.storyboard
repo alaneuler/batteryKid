@@ -301,7 +301,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-cq-xfa">
-                                <rect key="frame" x="67" y="12" width="57" height="15"/>
+                                <rect key="frame" x="67" y="12" width="72" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Unknown" id="NKE-o0-2M5">
                                     <font key="font" metaFont="cellTitle"/>
