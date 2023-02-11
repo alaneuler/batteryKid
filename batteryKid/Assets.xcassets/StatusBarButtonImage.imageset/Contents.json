@@ -1,17 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "mac",
       "scale" : "1x"
     },
     {
-      "filename" : "10.png",
-      "idiom" : "universal",
+      "filename" : "状态栏图标.png",
+      "idiom" : "mac",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {
@@ -19,6 +15,7 @@
     "version" : 1
   },
   "properties" : {
+    "compression-type" : "gpu-optimized-best",
     "template-rendering-intent" : "template"
   }
 }
