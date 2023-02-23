@@ -77,6 +77,7 @@
 		7C63FE9729758891009647F0 /* Launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
 		7C63FE9A2976C81D009647F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C63FEB72976D38F009647F0 /* uninstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = uninstall.sh; sourceTree = "<group>"; };
+		7C7E363929A7944F00B4A8DB /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
 		7CB8976729855A9700B0BF94 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		7CB8976929855C8900B0BF94 /* BatteryFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +103,7 @@
 		7C57384D29739A9D00320731 = {
 			isa = PBXGroup;
 			children = (
+				7C7E363929A7944F00B4A8DB /* format.sh */,
 				7C63FEB72976D38F009647F0 /* uninstall.sh */,
 				7C63FE8F297581BB009647F0 /* SMJobBlessUtil3.py */,
 				7C57387229741BEC00320731 /* common */,

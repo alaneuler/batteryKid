@@ -5,17 +5,20 @@ import Foundation
 /// Class implementing the HelperTool protocol, it's a long running daemon.
 class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
   static let CHARGING_KEY_STR: String = "CH0B"
-  
+
   static let POWER_ADAPTER_KEY_STR: String = "CH0I"
-  
+
   // TODO: Add update functionality.
   static let VERSION = "0.0.1"
-  
+
   let listener: NSXPCListener
-  
+
   /// Under SMC key CH0B, 00 means charging and 02 meaning not.
   func chargingStat(completion: @escaping (Bool, Bool) -> Void) {
-    let smcKey = SMCKit.getKey(PrivilegeHelper.CHARGING_KEY_STR, type: DataTypes.UInt8)
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.CHARGING_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let stat = readSMCBytes(key: smcKey)
     if stat == nil {
       Logger.error("Reading charging stat from SMC failed!")
@@ -31,10 +34,13 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
       completion(true, stat)
     }
   }
-  
+
   /// Under SMC key CH0I, 00 means power adapter connected and 01 disconnected.
   func powerAdapterStat(completion: @escaping (Bool, Bool) -> Void) {
-    let smcKey = SMCKit.getKey(PrivilegeHelper.POWER_ADAPTER_KEY_STR, type: DataTypes.UInt8)
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.POWER_ADAPTER_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let stat = readSMCBytes(key: smcKey)
     if stat == nil {
       Logger.error("Reading power adapter stat from SMC failed!")
@@ -50,11 +56,14 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
       completion(true, stat)
     }
   }
-  
+
   func disableCharging(completion: @escaping (Int) -> Void) {
     Logger.info("Disabling charging...")
-      
-    let smcKey = SMCKit.getKey(PrivilegeHelper.CHARGING_KEY_STR, type: DataTypes.UInt8)
+
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.CHARGING_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let oldChargingStat = readSMCBytes(key: smcKey)
     if oldChargingStat != nil {
       let val = oldChargingStat!.0
@@ -70,17 +79,21 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
         }
       }
     } else {
-      Logger.error("Unable to find SMC key: \(PrivilegeHelper.CHARGING_KEY_STR)")
+      Logger
+        .error("Unable to find SMC key: \(PrivilegeHelper.CHARGING_KEY_STR)")
       completion(3)
     }
-      
+
     Logger.info("Disable charging done.")
   }
-  
+
   func enableCharging(completion: @escaping (Int) -> Void) {
     Logger.info("Enabling charging...")
-      
-    let smcKey = SMCKit.getKey(PrivilegeHelper.CHARGING_KEY_STR, type: DataTypes.UInt8)
+
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.CHARGING_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let oldChargingStat = readSMCBytes(key: smcKey)
     if oldChargingStat != nil {
       let val = oldChargingStat!.0
@@ -96,17 +109,21 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
         }
       }
     } else {
-      Logger.error("Unable to find SMC key: \(PrivilegeHelper.CHARGING_KEY_STR)")
+      Logger
+        .error("Unable to find SMC key: \(PrivilegeHelper.CHARGING_KEY_STR)")
       completion(3)
     }
-      
+
     Logger.info("Enable charging done.")
   }
-  
+
   func disablePowerAdapter(completion: @escaping (Int) -> Void) {
     Logger.info("Disabling power adapter (AC)...")
-    
-    let smcKey = SMCKit.getKey(PrivilegeHelper.POWER_ADAPTER_KEY_STR, type: DataTypes.UInt8)
+
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.POWER_ADAPTER_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let oldPowerAdapterStat = readSMCBytes(key: smcKey)
     if oldPowerAdapterStat != nil {
       let val = oldPowerAdapterStat!.0
@@ -122,17 +139,23 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
         }
       }
     } else {
-      Logger.error("Unable to find SMC key: \(PrivilegeHelper.POWER_ADAPTER_KEY_STR)")
+      Logger
+        .error(
+          "Unable to find SMC key: \(PrivilegeHelper.POWER_ADAPTER_KEY_STR)"
+        )
       completion(3)
     }
-    
+
     Logger.info("Disable power adapter done.")
   }
-  
+
   func enablePowerAdapter(completion: @escaping (Int) -> Void) {
     Logger.info("Enabling power adapter (AC)...")
-    
-    let smcKey = SMCKit.getKey(PrivilegeHelper.POWER_ADAPTER_KEY_STR, type: DataTypes.UInt8)
+
+    let smcKey = SMCKit.getKey(
+      PrivilegeHelper.POWER_ADAPTER_KEY_STR,
+      type: DataTypes.UInt8
+    )
     let oldPowerAdapterStat = readSMCBytes(key: smcKey)
     if oldPowerAdapterStat != nil {
       let val = oldPowerAdapterStat!.0
@@ -148,18 +171,21 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
         }
       }
     } else {
-      Logger.error("Unable to find SMC key: \(PrivilegeHelper.POWER_ADAPTER_KEY_STR)")
+      Logger
+        .error(
+          "Unable to find SMC key: \(PrivilegeHelper.POWER_ADAPTER_KEY_STR)"
+        )
       completion(3)
     }
-    
+
     Logger.info("Enable power adapter done.")
   }
-  
+
   func getVersion(completion: @escaping (String) -> Void) {
     Logger.info("Getting current helper version \(PrivilegeHelper.VERSION).")
     completion(PrivilegeHelper.VERSION)
   }
-  
+
   private func readSMCBytes(key: SMCKey) -> SMCBytes? {
     do {
       return try SMCKit.readData(key)
@@ -168,7 +194,7 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
       return nil
     }
   }
-  
+
   private func writeSMCBytes(key: SMCKey, bytes: SMCBytes) -> Bool {
     do {
       try SMCKit.writeData(key, data: bytes)
@@ -178,50 +204,57 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
       return false
     }
   }
-  
+
   private func smcBytes(value: UInt8) -> SMCBytes {
-    return (value, UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
-            UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
-            UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
-            UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
-            UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
-            UInt8(0), UInt8(0))
+    (value, UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
+     UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
+     UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
+     UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
+     UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0), UInt8(0),
+     UInt8(0), UInt8(0))
   }
-  
-  func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+
+  func listener(
+    _: NSXPCListener,
+    shouldAcceptNewConnection newConnection: NSXPCConnection
+  ) -> Bool {
     newConnection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
-    newConnection.remoteObjectInterface = NSXPCInterface(with: RemoteApplicationProtocol.self)
+    newConnection
+      .remoteObjectInterface = NSXPCInterface(with: RemoteApplicationProtocol
+        .self)
     newConnection.exportedObject = self
     newConnection.resume()
     return true
   }
-  
+
   private func openSMC() {
     Logger.info("Opening connection to SMC...")
     do {
       try SMCKit.open()
       Logger.info("Open connection to SMC successfully.")
     } catch {
-      Logger.error("Open connection to SMC error: \(error.localizedDescription)")
+      Logger
+        .error("Open connection to SMC error: \(error.localizedDescription)")
       exit(-1)
     }
   }
+
   private func closeSMC() {
     Logger.info("Closing connection to SMC...")
     SMCKit.close()
   }
-  
+
   override init() {
-    self.listener = NSXPCListener(machServiceName: Constants.DOMAIN)
+    listener = NSXPCListener(machServiceName: Constants.DOMAIN)
     super.init()
-    self.listener.delegate = self
-          
+    listener.delegate = self
+
     openSMC()
   }
-  
+
   /// The only entrance for this class.
   func run() {
-    self.listener.resume()
+    listener.resume()
     RunLoop.current.run()
   }
 }

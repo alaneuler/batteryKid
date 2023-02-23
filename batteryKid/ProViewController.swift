@@ -9,32 +9,32 @@ class ProViewController: BaseViewController {
   static let DISCONNECTED_STR: String = "Disconnected"
   static let BULB_ON: String = "bulbOn"
   static let BULB_OFF: String = "bulbOff"
-  
-  @IBOutlet weak var chargingBulb: NSImageView!
-  @IBOutlet weak var chargingStatus: NSTextField!
-  @IBOutlet weak var chargingButton: NSButton!
-  
-  @IBOutlet weak var powerAdapterBulb: NSImageView!
-  @IBOutlet weak var powerAdapterStatus: NSTextField!
-  @IBOutlet weak var powerAdapterButton: NSButton!
-  
-  @IBOutlet weak var socPercent: NSTextField!
-  
+
+  @IBOutlet var chargingBulb: NSImageView!
+  @IBOutlet var chargingStatus: NSTextField!
+  @IBOutlet var chargingButton: NSButton!
+
+  @IBOutlet var powerAdapterBulb: NSImageView!
+  @IBOutlet var powerAdapterStatus: NSTextField!
+  @IBOutlet var powerAdapterButton: NSButton!
+
+  @IBOutlet var socPercent: NSTextField!
+
   var timer: Timer!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     activate()
     Logger.info("ProView loaded.")
   }
-  
+
   override func activate() {
     super.activate()
-    
+
     updateStat()
-    if self.timer == nil {
-      self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
+    if timer == nil {
+      timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
         self.updateStat()
       }
@@ -44,19 +44,19 @@ class ProViewController: BaseViewController {
     }
     Logger.info("Pro mode activated.")
   }
-  
+
   override func deactivate() {
-    self.timer.invalidate()
-    self.timer = nil
+    timer.invalidate()
+    timer = nil
     Logger.info("ProMode deactivated.")
   }
-  
+
   func updateStat() {
     // If UI is not already initialized, skip the upadting.
-    if self.chargingButton == nil {
+    if chargingButton == nil {
       return
     }
-    
+
     updateSoc()
     helper.chargingStat(completion: {
       success, stat in
@@ -67,13 +67,13 @@ class ProViewController: BaseViewController {
       self.updatePowerAdapterStat(success: success, stat: stat)
     })
   }
-  
+
   override func doUpdateSoc(_ soc: String) {
     DispatchQueue.main.async {
       self.socPercent?.stringValue = soc
     }
   }
-  
+
   func updateChargingStat(success: Bool, stat: Bool) {
     if success {
       if stat {
@@ -96,20 +96,23 @@ class ProViewController: BaseViewController {
       }
     }
   }
-  
+
   func updatePowerAdapterStat(success: Bool, stat: Bool) {
     if success {
       if stat {
         DispatchQueue.main.async {
           self.powerAdapterButton.isEnabled = true
           self.powerAdapterStatus.stringValue = ProViewController.CONNECTED_STR
-          self.powerAdapterBulb.image = NSImage(named: ProViewController.BULB_ON)
+          self.powerAdapterBulb
+            .image = NSImage(named: ProViewController.BULB_ON)
         }
       } else {
         DispatchQueue.main.async {
           self.powerAdapterButton.isEnabled = true
-          self.powerAdapterStatus.stringValue = ProViewController.DISCONNECTED_STR
-          self.powerAdapterBulb.image = NSImage(named: ProViewController.BULB_OFF)
+          self.powerAdapterStatus.stringValue = ProViewController
+            .DISCONNECTED_STR
+          self.powerAdapterBulb
+            .image = NSImage(named: ProViewController.BULB_OFF)
         }
       }
     } else {
@@ -119,8 +122,8 @@ class ProViewController: BaseViewController {
       }
     }
   }
-  
-  @IBAction func togglePowerAdapter(_ sender: NSButton) {
+
+  @IBAction func togglePowerAdapter(_: NSButton) {
     if powerAdapterStatus.stringValue == ProViewController.CONNECTED_STR {
       helper.disablePowerAdapter(completion: {
         code in
@@ -128,14 +131,17 @@ class ProViewController: BaseViewController {
           Logger.info("Disconnected power adapter successfully.")
           self.updatePowerAdapterStat(success: true, stat: false)
         } else if code == 1 {
-          Logger.warn("Power adapter already disconnected, only updating the UI.")
+          Logger
+            .warn("Power adapter already disconnected, only updating the UI.")
           self.updatePowerAdapterStat(success: true, stat: false)
         } else {
           Logger.error("Disconnect power adapter failed!")
           self.updatePowerAdapterStat(success: false, stat: false)
         }
       })
-    } else if powerAdapterStatus.stringValue == ProViewController.DISCONNECTED_STR {
+    } else if powerAdapterStatus.stringValue == ProViewController
+      .DISCONNECTED_STR
+    {
       helper.enablePowerAdapter(completion: {
         code in
         if code == 0 {
@@ -150,11 +156,14 @@ class ProViewController: BaseViewController {
         }
       })
     } else {
-      Logger.warn("Currently in error power adapter stat, waiting it to be updated.")
+      Logger
+        .warn(
+          "Currently in error power adapter stat, waiting it to be updated."
+        )
     }
   }
-  
-  @IBAction func toggleCharging(_ sender: NSButton) {
+
+  @IBAction func toggleCharging(_: NSButton) {
     if chargingStatus.stringValue == ProViewController.ON_STR {
       helper.disableCharging(completion: {
         code in
@@ -187,8 +196,8 @@ class ProViewController: BaseViewController {
       Logger.warn("Currently in error charging stat, waiting it to be updated.")
     }
   }
-  
+
   static func getController() -> BaseViewController {
-    return controller("ProViewController")
+    controller("ProViewController")
   }
 }

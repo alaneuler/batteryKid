@@ -5,38 +5,40 @@ import Cocoa
 class LiteViewController: BaseViewController {
   static let DEVIATION: Double = 2.0
   static let USER_SET_LIMIT_VALUE_KEY: String = "user_set_limit_value"
-  
-  @IBOutlet weak var socPercent: NSTextField!
-  @IBOutlet weak var sliderValue: NSTextField!
-  @IBOutlet weak var slider: NSSlider!
-  @IBOutlet weak var statusLabel: NSTextField!
-  
+
+  @IBOutlet var socPercent: NSTextField!
+  @IBOutlet var sliderValue: NSTextField!
+  @IBOutlet var slider: NSSlider!
+  @IBOutlet var statusLabel: NSTextField!
+
   var chargeLimit: Double = 70
   var timer: Timer!
-  
+
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    
-    if let limit = UserDefaults.standard.string(forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY) {
+
+    if let limit = UserDefaults.standard
+      .string(forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY)
+    {
       chargeLimit = Double(limit)!
     }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     slider.doubleValue = chargeLimit
     updateSliderValue(value: "\(Int(chargeLimit))%")
     activate()
     Logger.info("LiteView loaded.")
   }
-  
+
   override func activate() {
     super.activate()
-    
+
     updateAndMonitor()
     if timer == nil {
-      self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
+      timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
         self.updateAndMonitor()
       }
@@ -47,18 +49,18 @@ class LiteViewController: BaseViewController {
     }
     Logger.info("Lite mode activated.")
   }
-  
+
   override func deactivate() {
-    self.timer.invalidate()
-    self.timer = nil
+    timer.invalidate()
+    timer = nil
     Logger.info("LiteMode deactivated.")
   }
-  
+
   func updateAndMonitor() {
     monitorStat()
-    
+
     // Only update the UI if UI is already initialized.
-    if self.socPercent != nil {
+    if socPercent != nil {
       updateSoc()
       updateUiStat()
     }
@@ -77,7 +79,7 @@ class LiteViewController: BaseViewController {
       }
     })
   }
-  
+
   private func doUpdateUiStat(chargingStat: Bool, powerAdapterStat: Bool) {
     if chargingStat, powerAdapterStat {
       DispatchQueue.main.async {
@@ -93,7 +95,7 @@ class LiteViewController: BaseViewController {
       }
     }
   }
-  
+
   private func enablePowerAdapterAccordingly() {
     helper.powerAdapterStat(completion: {
       success, stat in
@@ -107,7 +109,7 @@ class LiteViewController: BaseViewController {
       }
     })
   }
-  
+
   private func disablePowerAdapterAccordingly() {
     helper.powerAdapterStat(completion: {
       success, stat in
@@ -121,7 +123,7 @@ class LiteViewController: BaseViewController {
       }
     })
   }
-  
+
   private func enableChargingAccordingly() {
     helper.chargingStat(completion: {
       success, stat in
@@ -135,7 +137,7 @@ class LiteViewController: BaseViewController {
       }
     })
   }
-  
+
   private func disableChargingAccordingly() {
     helper.chargingStat(completion: {
       success, stat in
@@ -149,7 +151,7 @@ class LiteViewController: BaseViewController {
       }
     })
   }
-  
+
   func monitorStat() {
     // Logger.info("Monitoring...")
     if let battery = BatteryFinder().getBattery() {
@@ -172,32 +174,35 @@ class LiteViewController: BaseViewController {
       }
     }
   }
-  
+
   func updateSliderValue(value: String) {
     DispatchQueue.main.async {
       self.sliderValue.stringValue = value
     }
   }
-  
+
   @IBAction func sliderValueChanged(_ sender: NSSlider) {
     let value = sender.doubleValue
     updateSliderValue(value: "\(Int(value))%")
-    
+
     let event = NSApplication.shared.currentEvent
     if event?.type == NSEvent.EventType.leftMouseUp {
       chargeLimit = value
-      UserDefaults.standard.set(String(chargeLimit), forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY)
+      UserDefaults.standard.set(
+        String(chargeLimit),
+        forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY
+      )
       Logger.info("Stored user set limit value \(chargeLimit)")
     }
   }
-  
+
   override func doUpdateSoc(_ soc: String) {
     DispatchQueue.main.async {
       self.socPercent?.stringValue = soc
     }
   }
-  
+
   static func getController() -> BaseViewController {
-    return controller("LiteViewController")
+    controller("LiteViewController")
   }
 }
