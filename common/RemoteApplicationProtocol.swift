@@ -1,4 +1,5 @@
-//  Created by Alaneuler Erving on 2023/1/16.
+// RemoteApplicationProtocol.swift created on 2023/2/23.
+// Copyright © 2023 Alaneuler.
 
 import Foundation
 

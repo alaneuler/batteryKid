@@ -1,3 +1,6 @@
+// Battery.swift created on 2023/2/23.
+// Copyright © 2023 Alaneuler.
+
 // Source: https://stackoverflow.com/questions/57145091/swift-macos-batterylevel-property
 
 import Foundation

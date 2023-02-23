@@ -1,4 +1,5 @@
-//  Created by Alaneuler Erving on 2023/1/16.
+// PrivilegeHelper.swift created on 2023/2/23.
+// Copyright © 2023 Alaneuler.
 
 import Foundation
 
@@ -245,7 +246,7 @@ class PrivilegeHelper: NSObject, NSXPCListenerDelegate, HelperProtocol {
   }
 
   override init() {
-    listener = NSXPCListener(machServiceName: Constants.DOMAIN)
+    self.listener = NSXPCListener(machServiceName: Constants.DOMAIN)
     super.init()
     listener.delegate = self
 

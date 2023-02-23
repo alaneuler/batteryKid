@@ -1,4 +1,5 @@
-//  Created by Alaneuler Erving on 2023/1/15.
+// LiteViewController.swift created on 2023/2/23.
+// Copyright © 2023 Alaneuler.
 
 import Cocoa
 
@@ -20,7 +21,7 @@ class LiteViewController: BaseViewController {
     if let limit = UserDefaults.standard
       .string(forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY)
     {
-      chargeLimit = Double(limit)!
+      self.chargeLimit = Double(limit)!
     }
   }
 

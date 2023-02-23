@@ -1,4 +1,5 @@
-//  Created by Alaneuler Erving on 2023/1/16.
+// main.swift created on 2023/1/17.
+// Copyright © 2023 Alaneuler.
 
 import Foundation
 

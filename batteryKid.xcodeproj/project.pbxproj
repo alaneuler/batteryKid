@@ -77,7 +77,8 @@
 		7C63FE9729758891009647F0 /* Launchd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
 		7C63FE9A2976C81D009647F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C63FEB72976D38F009647F0 /* uninstall.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = uninstall.sh; sourceTree = "<group>"; };
-		7C7E363929A7944F00B4A8DB /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
+		7C7E363A29A79F7800B4A8DB /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		7C7E363B29A7A12100B4A8DB /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
 		7CB8976729855A9700B0BF94 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		7CB8976929855C8900B0BF94 /* BatteryFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,13 +104,14 @@
 		7C57384D29739A9D00320731 = {
 			isa = PBXGroup;
 			children = (
-				7C7E363929A7944F00B4A8DB /* format.sh */,
-				7C63FEB72976D38F009647F0 /* uninstall.sh */,
-				7C63FE8F297581BB009647F0 /* SMJobBlessUtil3.py */,
-				7C57387229741BEC00320731 /* common */,
+				7C7E363A29A79F7800B4A8DB /* .swiftformat */,
 				7C57385829739A9D00320731 /* batteryKid */,
+				7C57387229741BEC00320731 /* common */,
+				7C7E363B29A7A12100B4A8DB /* format.sh */,
 				7C63FE7D29757FDA009647F0 /* PrivilegeHelper */,
 				7C57385729739A9D00320731 /* Products */,
+				7C63FE8F297581BB009647F0 /* SMJobBlessUtil3.py */,
+				7C63FEB72976D38F009647F0 /* uninstall.sh */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,16 +129,16 @@
 			children = (
 				7C57385929739A9D00320731 /* AppDelegate.swift */,
 				7C57385D29739A9E00320731 /* Assets.xcassets */,
-				7C57385F29739A9E00320731 /* Main.storyboard */,
-				7C57386229739A9E00320731 /* batteryKid.entitlements */,
-				7C57386A2973D16600320731 /* EventMonitor.swift */,
-				7C5738682973C4B000320731 /* ProViewController.swift */,
-				7C57386E2973F39400320731 /* LiteViewController.swift */,
 				7C5738702973F4D900320731 /* BaseViewController.swift */,
-				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
-				7C63FE9A2976C81D009647F0 /* Info.plist */,
 				7CB8976729855A9700B0BF94 /* Battery.swift */,
 				7CB8976929855C8900B0BF94 /* BatteryFinder.swift */,
+				7C57386229739A9E00320731 /* batteryKid.entitlements */,
+				7C57386A2973D16600320731 /* EventMonitor.swift */,
+				7C63FE9A2976C81D009647F0 /* Info.plist */,
+				7C57386E2973F39400320731 /* LiteViewController.swift */,
+				7C57385F29739A9E00320731 /* Main.storyboard */,
+				7C5738682973C4B000320731 /* ProViewController.swift */,
+				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
 			);
 			path = batteryKid;
 			sourceTree = "<group>";
@@ -144,9 +146,9 @@
 		7C57387229741BEC00320731 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				7C63FE832975802A009647F0 /* Logger.swift */,
-				7C63FE8629758053009647F0 /* HelperProtocol.swift */,
 				7C63FE8929758153009647F0 /* Constants.swift */,
+				7C63FE8629758053009647F0 /* HelperProtocol.swift */,
+				7C63FE832975802A009647F0 /* Logger.swift */,
 				7C63FE8C2975818D009647F0 /* RemoteApplicationProtocol.swift */,
 			);
 			path = common;
@@ -155,11 +157,11 @@
 		7C63FE7D29757FDA009647F0 /* PrivilegeHelper */ = {
 			isa = PBXGroup;
 			children = (
+				7C63FE9629758826009647F0 /* Info.plist */,
+				7C63FE9729758891009647F0 /* Launchd.plist */,
 				7C63FE7E29757FDA009647F0 /* main.swift */,
 				7C63FE90297581EC009647F0 /* PrivilegeHelper.swift */,
 				7C63FE92297581FE009647F0 /* SMC.swift */,
-				7C63FE9629758826009647F0 /* Info.plist */,
-				7C63FE9729758891009647F0 /* Launchd.plist */,
 			);
 			path = PrivilegeHelper;
 			sourceTree = "<group>";
