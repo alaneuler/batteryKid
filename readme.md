@@ -17,10 +17,10 @@ This small menu bar tool can assist in maintaining the battery health of your Ma
 
 ## Screenshot
 ### Lite Mode
-<img width="475" alt="image" src="https://user-images.githubusercontent.com/8054939/216766125-5c41838a-54d1-421e-8095-a04970709662.png">
+<img width="350" alt="image" src="screenshots/lite-mode.png">
 
 ### Pro Mode
-<img width="475" alt="image" src="https://user-images.githubusercontent.com/8054939/216766157-367337a3-9046-478e-adaa-5c470b9c28f1.png">
+<img width="350" alt="image" src="screenshots/pro-mode.png">
 
 ### Acknowledgements
 I would like to extend my gratitude to my girlfriend for designing the user interface and icons.
