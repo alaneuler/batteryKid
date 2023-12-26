@@ -12,7 +12,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>identifier "me.alaneuler.batteryKid" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: alaneuler@qq.com (8G3Z3D84A5)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier "me.alaneuler.batteryKid" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Zhi Xiong Zheng (MU6W95JQ7K)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</array>
 </dict>
 </plist>
