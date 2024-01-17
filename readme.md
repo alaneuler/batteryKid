@@ -35,9 +35,6 @@ sudo rm -rf /Library/LaunchDaemons/me.alaneuler.batteryKid.PrivilegeHelper.plist
 sudo rm -rf /Library/PrivilegedHelperTools/me.alaneuler.batteryKid.PrivilegeHelper
 ```
 
-## License
-This project is under the MIT License.
-
 ## TODO
 - [ ] Uninstall and about menu
 - [ ] Support clamshell mode
