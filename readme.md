@@ -7,6 +7,7 @@ batteries](https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-b
 However, for those who're using MacBooks as their daily workhourse, chances are that the batteries are always 100% for a long period of time.
 This small menubar tool can assist in maintaining the battery health of your MacBook (only compatible with Apple Silicon).
 It is free and open-source and will remain that way in the future.
+
 batteryKid has two modes:
 1. **Lite Mode** (Recommended): this mode maintains the SoC (State of Charge) within a range of ±2% for the user-selected value.
 2. **Pro Mode**: this mode exposes the switches utilized by the lite mode.
