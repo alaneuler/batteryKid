@@ -1,5 +1,5 @@
 // ProViewController.swift created on 2023/2/23.
-// Copyright © 2023 Alaneuler.
+// Copyright © 2024 Alaneuler.
 
 import Cocoa
 
@@ -19,8 +19,6 @@ class ProViewController: BaseViewController {
   @IBOutlet var powerAdapterStatus: NSTextField!
   @IBOutlet var powerAdapterButton: NSButton!
 
-  @IBOutlet var socPercent: NSTextField!
-
   var timer: Timer!
 
   override func viewDidLoad() {
@@ -33,11 +31,11 @@ class ProViewController: BaseViewController {
   override func activate() {
     super.activate()
 
-    updateStat()
+    monitorAndUpdate()
     if timer == nil {
       timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
-        self.updateStat()
+        self.monitorAndUpdate()
       }
       Logger.info("Timer for pro mode set.")
     } else {
@@ -52,13 +50,15 @@ class ProViewController: BaseViewController {
     Logger.info("ProMode deactivated.")
   }
 
-  func updateStat() {
-    // If UI is not already initialized, skip the upadting.
+  /**
+   Monitor the charging and AC status, update the UI if necessary.
+   */
+  func monitorAndUpdate() {
+    // If UI is not already initialized, skip the updating.
     if chargingButton == nil {
       return
     }
 
-    updateSoc()
     helper.chargingStat(completion: {
       success, stat in
       self.updateChargingStat(success: success, stat: stat)
@@ -67,12 +67,6 @@ class ProViewController: BaseViewController {
       success, stat in
       self.updatePowerAdapterStat(success: success, stat: stat)
     })
-  }
-
-  override func doUpdateSoc(_ soc: String) {
-    DispatchQueue.main.async {
-      self.socPercent?.stringValue = soc
-    }
   }
 
   func updateChargingStat(success: Bool, stat: Bool) {

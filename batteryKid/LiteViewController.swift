@@ -1,5 +1,5 @@
 // LiteViewController.swift created on 2023/2/23.
-// Copyright © 2023 Alaneuler.
+// Copyright © 2024 Alaneuler.
 
 import Cocoa
 
@@ -7,7 +7,6 @@ class LiteViewController: BaseViewController {
   static let DEVIATION: Double = 2.0
   static let USER_SET_LIMIT_VALUE_KEY: String = "user_set_limit_value"
 
-  @IBOutlet var socPercent: NSTextField!
   @IBOutlet var sliderValue: NSTextField!
   @IBOutlet var slider: NSSlider!
   @IBOutlet var statusLabel: NSTextField!
@@ -37,15 +36,15 @@ class LiteViewController: BaseViewController {
   override func activate() {
     super.activate()
 
-    updateAndMonitor()
+    monitorAndUpdate()
     if timer == nil {
       timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
         _ in
-        self.updateAndMonitor()
+        self.monitorAndUpdate()
       }
       Logger.info("Timer for lite mode set.")
     } else {
-      // Already activated, just update the UI.
+      // Already activated, doing nothing, Won't enter this path in normal case.
       Logger.info("Timer already set, just updating the lite mode UI.")
     }
     Logger.info("Lite mode activated.")
@@ -57,17 +56,38 @@ class LiteViewController: BaseViewController {
     Logger.info("LiteMode deactivated.")
   }
 
-  func updateAndMonitor() {
-    monitorStat()
+  /**
+   Monitor the charging and AC status, update the status and the UI according to charging limit.
+   */
+  func monitorAndUpdate() {
+    monitorAndUpdateStatIfNecessary()
+    updateUi()
+  }
 
-    // Only update the UI if UI is already initialized.
-    if socPercent != nil {
-      updateSoc()
-      updateUiStat()
+  func monitorAndUpdateStatIfNecessary() {
+    // Logger.info("Monitoring...")
+    if let battery = BatteryFinder().getBattery() {
+      if let soc = battery.charge {
+        let upLimit = chargeLimit + LiteViewController.DEVIATION
+        let bottomLimit = chargeLimit - LiteViewController.DEVIATION
+        if soc > upLimit {
+          // Disconnect the power adapter and disable charging.
+          disablePowerAdapterAccordingly()
+          disableChargingAccordingly()
+        } else if soc < bottomLimit {
+          // Connect the power adapter and enable charging.
+          enablePowerAdapterAccordingly()
+          enableChargingAccordingly()
+        } else {
+          // Connect the power adapter and disable charging.
+          enablePowerAdapterAccordingly()
+          disableChargingAccordingly()
+        }
+      }
     }
   }
 
-  private func updateUiStat() {
+  private func updateUi() {
     helper.chargingStat(completion: {
       success1, stat1 in
       if success1 {
@@ -153,29 +173,6 @@ class LiteViewController: BaseViewController {
     })
   }
 
-  func monitorStat() {
-    // Logger.info("Monitoring...")
-    if let battery = BatteryFinder().getBattery() {
-      if let soc = battery.charge {
-        let upLimit = chargeLimit + LiteViewController.DEVIATION
-        let bottomLimit = chargeLimit - LiteViewController.DEVIATION
-        if soc > upLimit {
-          // Disconnect the power adapter and disable charging.
-          disablePowerAdapterAccordingly()
-          disableChargingAccordingly()
-        } else if soc < bottomLimit {
-          // Connect the power adapter and enable charging.
-          enablePowerAdapterAccordingly()
-          enableChargingAccordingly()
-        } else {
-          // Connect the power adapter and disable charging.
-          enablePowerAdapterAccordingly()
-          disableChargingAccordingly()
-        }
-      }
-    }
-  }
-
   func updateSliderValue(value: String) {
     DispatchQueue.main.async {
       self.sliderValue.stringValue = value
@@ -194,12 +191,6 @@ class LiteViewController: BaseViewController {
         forKey: LiteViewController.USER_SET_LIMIT_VALUE_KEY
       )
       Logger.info("Stored user set limit value \(chargeLimit)")
-    }
-  }
-
-  override func doUpdateSoc(_ soc: String) {
-    DispatchQueue.main.async {
-      self.socPercent?.stringValue = soc
     }
   }
 

@@ -1,5 +1,5 @@
 // SMC.swift created on 2023/2/23.
-// Copyright © 2023 Alaneuler.
+// Copyright © 2024 Alaneuler.
 
 import Foundation
 import IOKit
@@ -695,7 +695,7 @@ public extension SMCKit {
     var fans = [Fan]()
 
     for i in 0 ..< count {
-      fans.append(try SMCKit.fan(i))
+      try fans.append(SMCKit.fan(i))
     }
 
     return fans
