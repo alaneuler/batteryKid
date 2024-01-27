@@ -35,17 +35,6 @@ class BaseViewController: NSViewController {
     NSApplication.shared.terminate(sender)
   }
 
-//  func updateSoc() {
-//    if let battery = BatteryFinder().getBattery() {
-//      if let soc = battery.charge {
-//        doUpdateSoc(String(format: "%.0f%%", soc))
-//        return
-//      }
-//    }
-//    doUpdateSoc(BaseViewController.ERROR_STR)
-//    Logger.error("Getting battery SoC failed!")
-//  }
-
   static func controller(_ identifier: String) -> BaseViewController {
     let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
     let identifier = NSStoryboard.SceneIdentifier(identifier)

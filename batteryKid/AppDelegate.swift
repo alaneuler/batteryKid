@@ -20,12 +20,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     initInterface()
   }
 
+  let titleAttributes: [NSAttributedString.Key: Any] =
+    [.font: NSFont.systemFont(ofSize: 12)]
+
+  func updateMenuBarSoc() {
+    if let button = statusItem.button {
+      if let battery = BatteryFinder().getBattery() {
+        if let soc = battery.charge {
+          let attributedTitle = NSAttributedString(
+            string: String(format: "%.0f%%", soc),
+            attributes: titleAttributes
+          )
+          button.attributedTitle = attributedTitle
+
+          let titleSize = button.attributedTitle.size()
+          let newWidth = titleSize.width + 1
+          statusItem.length = newWidth
+        }
+      }
+    }
+  }
+
   private func initInterface() {
     if let button = statusItem.button {
-      let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-      image?.size = NSMakeSize(19.0, 19.0)
-      button.image = image
       button.action = #selector(togglePopover(_:))
+
+      updateMenuBarSoc()
+      _ = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
+        self.updateMenuBarSoc()
+      }
     }
 
     proViewController = ProViewController.getController()

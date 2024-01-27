@@ -102,6 +102,10 @@ class LiteViewController: BaseViewController {
   }
 
   private func doUpdateUiStat(chargingStat: Bool, powerAdapterStat: Bool) {
+    if statusLabel == nil {
+      return
+    }
+
     if chargingStat, powerAdapterStat {
       DispatchQueue.main.async {
         self.statusLabel.stringValue = "Charging"
