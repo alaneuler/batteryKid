@@ -1,5 +1,5 @@
-// BaseViewController.swift created on 2023/2/23.
-// Copyright © 2023 Alaneuler.
+// BaseViewController.swift created on 2024/1/27.
+// Copyright © 2024 Alaneuler.
 
 import Cocoa
 
@@ -31,32 +31,28 @@ class BaseViewController: NSViewController {
     delegate.toggleLitePro(self)
   }
 
-  @IBAction func quit(_ sender: NSButton) {
-    NSApplication.shared.terminate(sender)
+  @IBAction func showSettings(_: NSButton) {
+    NSApp.activate(ignoringOtherApps: true)
+    NSApp.orderFrontStandardAboutPanel(options: [
+      NSApplication
+        .AboutPanelOptionKey(rawValue: "Copyright"): "© Alaneuler. All rights reserved.",
+    ])
   }
 
-  func doUpdateSoc(_: String) {}
-  func updateSoc() {
-    if let battery = BatteryFinder().getBattery() {
-      if let soc = battery.charge {
-        doUpdateSoc(String(format: "%.0f%%", soc))
-        return
-      }
-    }
-    doUpdateSoc(BaseViewController.ERROR_STR)
-    Logger.error("Getting battery SoC failed!")
+  @IBAction func quit(_ sender: NSButton) {
+    NSApplication.shared.terminate(sender)
   }
 
   static func controller(_ identifier: String) -> BaseViewController {
     let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
     let identifier = NSStoryboard.SceneIdentifier(identifier)
-    guard let viewcontroller = storyboard
+    guard let viewController = storyboard
       .instantiateController(withIdentifier: identifier) as? BaseViewController
     else {
       fatalError(
         "Create a ViewController instance with identifier \(identifier) failed: plz check Main.storyboard."
       )
     }
-    return viewcontroller
+    return viewController
   }
 }

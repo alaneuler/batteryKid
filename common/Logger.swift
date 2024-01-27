@@ -1,10 +1,10 @@
 // Logger.swift created on 2023/2/23.
-// Copyright © 2023 Alaneuler.
+// Copyright © 2024 Alaneuler.
 
 import Foundation
 
 /// Simple Logger for logging
-class Logger {
+enum Logger {
   private static let DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
 
   private static let FORMATTER = DateFormatter()

@@ -23,64 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3429BFB0-A234-4A8D-B94B-886972C90209"
+            uuid = "8BCCB169-A6AD-4320-AA70-F5939CCF1F4E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "batteryKid/LiteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "init?(coder:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3429BFB0-A234-4A8D-B94B-886972C90209 - 116c1376fcd5e948"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "batteryKid.LiteViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;batteryKid.LiteViewController&gt;"
-                  moduleName = "batteryKid"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alaneuler/Projects/xcode/batteryKid/batteryKid/LiteViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "464">
-               </Location>
-               <Location
-                  uuid = "3429BFB0-A234-4A8D-B94B-886972C90209 - 116c1376fcd5e948"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "batteryKid.LiteViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;batteryKid.LiteViewController&gt;"
-                  moduleName = "batteryKid"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alaneuler/Projects/xcode/batteryKid/batteryKid/LiteViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "632">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F01EB9F6-105D-4AA7-B574-DA98EB573FFF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "batteryKid/BaseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "quit(_:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "activate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

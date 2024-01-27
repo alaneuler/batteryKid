@@ -127,18 +127,14 @@
 		7C57385829739A9D00320731 /* batteryKid */ = {
 			isa = PBXGroup;
 			children = (
+				7C95B6802B653051002A15D8 /* controller */,
+				7C95B67E2B653006002A15D8 /* model */,
+				7C95B67D2B652FE6002A15D8 /* view */,
 				7C57385929739A9D00320731 /* AppDelegate.swift */,
 				7C57385D29739A9E00320731 /* Assets.xcassets */,
-				7C5738702973F4D900320731 /* BaseViewController.swift */,
-				7CB8976729855A9700B0BF94 /* Battery.swift */,
-				7CB8976929855C8900B0BF94 /* BatteryFinder.swift */,
 				7C57386229739A9E00320731 /* batteryKid.entitlements */,
-				7C57386A2973D16600320731 /* EventMonitor.swift */,
 				7C63FE9A2976C81D009647F0 /* Info.plist */,
-				7C57386E2973F39400320731 /* LiteViewController.swift */,
-				7C57385F29739A9E00320731 /* Main.storyboard */,
-				7C5738682973C4B000320731 /* ProViewController.swift */,
-				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
+				7C95B67F2B653047002A15D8 /* utils */,
 			);
 			path = batteryKid;
 			sourceTree = "<group>";
@@ -164,6 +160,42 @@
 				7C63FE92297581FE009647F0 /* SMC.swift */,
 			);
 			path = PrivilegeHelper;
+			sourceTree = "<group>";
+		};
+		7C95B67D2B652FE6002A15D8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7C57385F29739A9E00320731 /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7C95B67E2B653006002A15D8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7CB8976729855A9700B0BF94 /* Battery.swift */,
+				7CB8976929855C8900B0BF94 /* BatteryFinder.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7C95B67F2B653047002A15D8 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
+				7C57386A2973D16600320731 /* EventMonitor.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		7C95B6802B653051002A15D8 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C5738702973F4D900320731 /* BaseViewController.swift */,
+				7C57386E2973F39400320731 /* LiteViewController.swift */,
+				7C5738682973C4B000320731 /* ProViewController.swift */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +244,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					7C57385529739A9D00320731 = {
 						CreatedOnToolsVersion = 14.2;
@@ -305,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -368,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -444,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.alaneuler.batteryKid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -478,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.alaneuler.batteryKid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
