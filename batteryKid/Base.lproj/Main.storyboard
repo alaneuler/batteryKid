@@ -72,7 +72,7 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController storyboardIdentifier="ProViewController" id="XfG-lQ-9wD" customClass="ProViewController" customModule="batteryKid" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                    <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="184" height="137"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -97,7 +97,7 @@
                                     <action selector="toggleCharging:" target="XfG-lQ-9wD" id="KyP-q0-fZY"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12a-ac-s5U">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12a-ac-s5U">
                                 <rect key="frame" x="57" y="80" width="114" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Battery Charging" id="28g-47-l2X">
                                     <font key="font" metaFont="system" size="14"/>
@@ -105,7 +105,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-jD-KwN">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-jD-KwN">
                                 <rect key="frame" x="57" y="63" width="27" height="15"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="OFF" id="HkA-tO-Wqy">
                                     <font key="font" metaFont="cellTitle"/>
@@ -131,7 +131,7 @@
                                     <action selector="togglePowerAdapter:" target="XfG-lQ-9wD" id="vYy-tE-pqQ"/>
                                 </connections>
                             </button>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-Hv-4l7">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-Hv-4l7">
                                 <rect key="frame" x="57" y="32" width="99" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Power Adapter" id="Spx-ik-aNT">
                                     <font key="font" metaFont="system" size="14"/>
@@ -139,7 +139,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-g6-9tR">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-g6-9tR">
                                 <rect key="frame" x="57" y="12" width="71" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Connected" id="ITr-y5-ETi">
                                     <font key="font" metaFont="system"/>
@@ -151,7 +151,7 @@
                                 <rect key="frame" x="118" y="114" width="59" height="20"/>
                                 <buttonCell key="cell" type="square" title="Pro Mode" bezelStyle="shadowlessSquare" alignment="center" inset="2" id="U5R-Te-qmg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="toggleLitePro:" target="XfG-lQ-9wD" id="mC9-cb-lch"/>
@@ -163,9 +163,12 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="showSettings:" target="XfG-lQ-9wD" id="9hC-Dc-7eb"/>
+                                </connections>
                             </button>
                             <button toolTip="Quit batteryKid" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-Te-JPP" userLabel="proModeQuit">
-                                <rect key="frame" x="7" y="118" width="13" height="13"/>
+                                <rect key="frame" x="7" y="117" width="13" height="13"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WdZ-JA-NnS">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -264,7 +267,7 @@
                                     <action selector="sliderValueChanged:" target="5hr-td-CsV" id="1h2-hx-IWf"/>
                                 </connections>
                             </slider>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-Xl-Yxq">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-Xl-Yxq">
                                 <rect key="frame" x="13" y="64" width="91" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Charge Limit:" id="b6s-Mq-btU">
@@ -273,7 +276,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1T8-im-cze">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1T8-im-cze">
                                 <rect key="frame" x="209" y="40" width="40" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="70%" id="JdP-t3-fZO">
@@ -282,7 +285,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-ta-OIr">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-ta-OIr">
                                 <rect key="frame" x="13" y="12" width="54" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Status: " id="pbJ-4i-nhK">
@@ -291,7 +294,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-cq-xfa">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-cq-xfa">
                                 <rect key="frame" x="67" y="12" width="72" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Unknown" id="NKE-o0-2M5">
@@ -318,13 +321,16 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="showSettings:" target="5hr-td-CsV" id="389-Vo-QMm"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4UR-iJ-ODo">
                                 <rect key="frame" x="192" y="95" width="61" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Lite Mode" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="lI5-Kf-nKG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="toggleLitePro:" target="5hr-td-CsV" id="yXC-1I-HUn"/>
