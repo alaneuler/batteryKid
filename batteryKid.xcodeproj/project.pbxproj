@@ -128,13 +128,13 @@
 			isa = PBXGroup;
 			children = (
 				7C95B6802B653051002A15D8 /* controller */,
-				7C95B67F2B653047002A15D8 /* utils */,
 				7C95B67E2B653006002A15D8 /* model */,
 				7C95B67D2B652FE6002A15D8 /* view */,
 				7C57385929739A9D00320731 /* AppDelegate.swift */,
 				7C57385D29739A9E00320731 /* Assets.xcassets */,
 				7C57386229739A9E00320731 /* batteryKid.entitlements */,
 				7C63FE9A2976C81D009647F0 /* Info.plist */,
+				7C95B67F2B653047002A15D8 /* utils */,
 			);
 			path = batteryKid;
 			sourceTree = "<group>";
