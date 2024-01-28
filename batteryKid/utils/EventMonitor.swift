@@ -1,7 +1,7 @@
 // EventMonitor.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
-import Cocoa
+import AppKit
 
 public class EventMonitor {
   private var monitor: Any?

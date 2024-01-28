@@ -1,15 +1,26 @@
 // BaseViewController.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
-import Cocoa
+import AppKit
+import SwiftUI
 
 class BaseViewController: NSViewController {
   static let ERROR_STR: String = "Err!"
 
   var helper: HelperProtocol!
 
+  var displayTitleString: String!
+
+  @IBOutlet var displayTitle: NSTextField!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    displayTitleString = UserDefaults.standard.string(forKey: DisplayTitleKey)
+    if displayTitleString.isEmpty {
+      displayTitleString = "batteryKid"
+    }
+    displayTitle.stringValue = displayTitleString
   }
 
   func activate() {

@@ -194,7 +194,7 @@
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuz-Ud-cl4">
                                 <rect key="frame" x="51" y="120" width="83" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="batteryKid" id="t9s-Yq-Aqb">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="batteryKid" id="t9s-Yq-Aqb">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -206,6 +206,7 @@
                         <outlet property="chargingBulb" destination="stq-Eq-gvO" id="edX-O1-AsW"/>
                         <outlet property="chargingButton" destination="zbH-rg-JiJ" id="Q4j-7X-Bo9"/>
                         <outlet property="chargingStatus" destination="fOR-jD-KwN" id="zuG-ge-ew3"/>
+                        <outlet property="displayTitle" destination="xuz-Ud-cl4" id="DGs-TN-p6S"/>
                         <outlet property="powerAdapterBulb" destination="058-nz-8I1" id="RiR-O9-ejs"/>
                         <outlet property="powerAdapterButton" destination="ryJ-6A-TAP" id="M7c-do-fmG"/>
                         <outlet property="powerAdapterStatus" destination="Rgz-g6-9tR" id="oqy-8r-NgT"/>
@@ -307,7 +308,7 @@
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAS-OK-ivt">
                                 <rect key="frame" x="88" y="103" width="83" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="batteryKid" id="Xa7-BS-6Px">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="batteryKid" id="Xa7-BS-6Px">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -316,6 +317,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="displayTitle" destination="zAS-OK-ivt" id="Ggc-lQ-mfQ"/>
                         <outlet property="slider" destination="Ee7-py-jLT" id="6Rw-Wx-qop"/>
                         <outlet property="sliderValue" destination="1T8-im-cze" id="Fnb-9U-uyx"/>
                         <outlet property="statusLabel" destination="2ZW-cq-xfa" id="7W9-7p-yxF"/>

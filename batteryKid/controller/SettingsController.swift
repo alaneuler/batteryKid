@@ -7,24 +7,24 @@ import Settings
 public var settingsWindowController = SettingsWindowController(
   panes: [
     Settings.Pane(
-      identifier: Settings.PaneIdentifier("1"),
-      title: "1",
+      identifier: Settings.PaneIdentifier("general"),
+      title: "General",
       toolbarIcon: NSImage(
-        systemSymbolName: "text.viewfinder",
-        accessibilityDescription: "asdf Settings"
+        systemSymbolName: "gear",
+        accessibilityDescription: "General Settings"
       )!
     ) {
-      CustomPane()
+      GeneralSettingsPane()
     },
     Settings.Pane(
-      identifier: Settings.PaneIdentifier("2"),
-      title: "2",
+      identifier: Settings.PaneIdentifier("update"),
+      title: "Update",
       toolbarIcon: NSImage(
-        systemSymbolName: "text.viewfinder",
-        accessibilityDescription: "Actions Settings"
+        systemSymbolName: "arrowshape.up.circle",
+        accessibilityDescription: "Update Settings"
       )!
     ) {
-      CustomPane2()
+      UpdateSettingsPane()
     },
   ]
 )

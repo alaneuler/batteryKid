@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       button.action = #selector(togglePopover(_:))
 
       updateMenuBarSoc()
-      _ = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
+      _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
         self.updateMenuBarSoc()
       }
     }
