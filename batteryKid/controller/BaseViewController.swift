@@ -1,15 +1,25 @@
-// BaseViewController.swift created on 2024/1/27.
+// BaseViewController.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
-import Cocoa
+import AppKit
 
 class BaseViewController: NSViewController {
   static let ERROR_STR: String = "Err!"
 
   var helper: HelperProtocol!
 
+  var displayTitleString: String!
+
+  @IBOutlet var displayTitle: NSTextField!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    displayTitleString = UserDefaults.standard.string(forKey: DisplayTitleKey)
+    if displayTitleString.isEmpty {
+      displayTitleString = "batteryKid"
+    }
+    displayTitle.stringValue = displayTitleString
   }
 
   func activate() {
@@ -29,14 +39,6 @@ class BaseViewController: NSViewController {
   @IBAction func toggleLitePro(_: NSButton) {
     let delegate = NSApplication.shared.delegate as! AppDelegate
     delegate.toggleLitePro(self)
-  }
-
-  @IBAction func showSettings(_: NSButton) {
-    NSApp.activate(ignoringOtherApps: true)
-    NSApp.orderFrontStandardAboutPanel(options: [
-      NSApplication
-        .AboutPanelOptionKey(rawValue: "Copyright"): "© Alaneuler. All rights reserved.",
-    ])
   }
 
   @IBAction func quit(_ sender: NSButton) {

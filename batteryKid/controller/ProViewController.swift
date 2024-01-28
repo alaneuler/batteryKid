@@ -1,4 +1,4 @@
-// ProViewController.swift created on 2023/2/23.
+// ProViewController.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
@@ -190,6 +190,14 @@ class ProViewController: BaseViewController {
     } else {
       Logger.warn("Currently in error charging stat, waiting it to be updated.")
     }
+  }
+
+  @IBAction func showAbout(_: Any) {
+    NSApp.activate(ignoringOtherApps: true)
+    NSApp.orderFrontStandardAboutPanel(options: [
+      NSApplication
+        .AboutPanelOptionKey(rawValue: "Copyright"): "© Alaneuler. All rights reserved.",
+    ])
   }
 
   static func getController() -> BaseViewController {

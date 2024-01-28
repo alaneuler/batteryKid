@@ -1,4 +1,4 @@
-// LiteViewController.swift created on 2023/2/23.
+// LiteViewController.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
@@ -196,6 +196,10 @@ class LiteViewController: BaseViewController {
       )
       Logger.info("Stored user set limit value \(chargeLimit)")
     }
+  }
+
+  @IBAction func showSettings(_: Any) {
+    settingsWindowController.show()
   }
 
   static func getController() -> BaseViewController {
