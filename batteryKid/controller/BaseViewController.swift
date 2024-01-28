@@ -2,7 +2,6 @@
 // Copyright © 2024 Alaneuler.
 
 import AppKit
-import SwiftUI
 
 class BaseViewController: NSViewController {
   static let ERROR_STR: String = "Err!"
