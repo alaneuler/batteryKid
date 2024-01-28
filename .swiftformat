@@ -1,6 +1,6 @@
 --allman false
 --indent 2
---header "{file} created on {created}.\nCopyright © {year} Alaneuler."
+--header "{file} created on {created}.\nCopyright © {created} Alaneuler."
 --self init-only
 --swiftversion 5
 --maxwidth 80

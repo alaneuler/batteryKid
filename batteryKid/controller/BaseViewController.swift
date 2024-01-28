@@ -1,4 +1,4 @@
-// BaseViewController.swift created on 2024/1/27.
+// BaseViewController.swift created on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
@@ -29,14 +29,6 @@ class BaseViewController: NSViewController {
   @IBAction func toggleLitePro(_: NSButton) {
     let delegate = NSApplication.shared.delegate as! AppDelegate
     delegate.toggleLitePro(self)
-  }
-
-  @IBAction func showSettings(_: NSButton) {
-    NSApp.activate(ignoringOtherApps: true)
-    NSApp.orderFrontStandardAboutPanel(options: [
-      NSApplication
-        .AboutPanelOptionKey(rawValue: "Copyright"): "© Alaneuler. All rights reserved.",
-    ])
   }
 
   @IBAction func quit(_ sender: NSButton) {

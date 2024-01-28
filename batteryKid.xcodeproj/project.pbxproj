@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3CD36A2B66435900641A71 /* Settings in Frameworks */ = {isa = PBXBuildFile; productRef = 7C3CD3692B66435900641A71 /* Settings */; };
+		7C3CD36C2B66436800641A71 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CD36B2B66436800641A71 /* Settings.swift */; };
+		7C3CD36E2B66440700641A71 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CD36D2B66440700641A71 /* SettingsController.swift */; };
 		7C57385A29739A9D00320731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57385929739A9D00320731 /* AppDelegate.swift */; };
 		7C57385E29739A9E00320731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C57385D29739A9E00320731 /* Assets.xcassets */; };
 		7C57386129739A9E00320731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C57385F29739A9E00320731 /* Main.storyboard */; };
@@ -54,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C3CD36B2B66436800641A71 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7C3CD36D2B66440700641A71 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		7C57385629739A9D00320731 /* batteryKid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batteryKid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C57385929739A9D00320731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C57385D29739A9E00320731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C3CD36A2B66435900641A71 /* Settings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				7C57385F29739A9E00320731 /* Main.storyboard */,
+				7C3CD36B2B66436800641A71 /* Settings.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 				7C5738702973F4D900320731 /* BaseViewController.swift */,
 				7C57386E2973F39400320731 /* LiteViewController.swift */,
 				7C5738682973C4B000320731 /* ProViewController.swift */,
+				7C3CD36D2B66440700641A71 /* SettingsController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -215,6 +223,9 @@
 			dependencies = (
 			);
 			name = batteryKid;
+			packageProductDependencies = (
+				7C3CD3692B66435900641A71 /* Settings */,
+			);
 			productName = batteryKid;
 			productReference = 7C57385629739A9D00320731 /* batteryKid.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 7C57384D29739A9D00320731;
+			packageReferences = (
+				7C3CD3682B66435900641A71 /* XCRemoteSwiftPackageReference "Settings" */,
+			);
 			productRefGroup = 7C57385729739A9D00320731 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +306,7 @@
 			files = (
 				7C5738712973F4D900320731 /* BaseViewController.swift in Sources */,
 				7CB8976A29855C8900B0BF94 /* BatteryFinder.swift in Sources */,
+				7C3CD36C2B66436800641A71 /* Settings.swift in Sources */,
 				7C63FE842975802A009647F0 /* Logger.swift in Sources */,
 				7C57386F2973F39400320731 /* LiteViewController.swift in Sources */,
 				7C57386B2973D16600320731 /* EventMonitor.swift in Sources */,
@@ -299,6 +314,7 @@
 				7C63FE8D2975818E009647F0 /* RemoteApplicationProtocol.swift in Sources */,
 				7CB8976829855A9700B0BF94 /* Battery.swift in Sources */,
 				7C63FE8729758053009647F0 /* HelperProtocol.swift in Sources */,
+				7C3CD36E2B66440700641A71 /* SettingsController.swift in Sources */,
 				7C63FE9529758561009647F0 /* RemoteHelper.swift in Sources */,
 				7C57385A29739A9D00320731 /* AppDelegate.swift in Sources */,
 				7C63FE8A29758153009647F0 /* Constants.swift in Sources */,
@@ -604,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C3CD3682B66435900641A71 /* XCRemoteSwiftPackageReference "Settings" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Settings";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C3CD3692B66435900641A71 /* Settings */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C3CD3682B66435900641A71 /* XCRemoteSwiftPackageReference "Settings" */;
+			productName = Settings;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C57384E29739A9D00320731 /* Project object */;
 }
