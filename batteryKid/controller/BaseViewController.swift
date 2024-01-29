@@ -16,7 +16,7 @@ class BaseViewController: NSViewController {
     super.viewDidLoad()
 
     displayTitleString = UserDefaults.standard.string(forKey: DisplayTitleKey)
-    if displayTitleString.isEmpty {
+    if displayTitleString == nil || displayTitleString.isEmpty {
       displayTitleString = "batteryKid"
     }
     displayTitle.stringValue = displayTitleString

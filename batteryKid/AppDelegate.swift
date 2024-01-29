@@ -8,6 +8,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   static let CURRENT_VIEW_CONTROLLER_KEY: String = "current_view_controller"
   static let PRO_VIEW_CONTROLLER: String = "proView"
   static let LITE_VIEW_CONTROLLER: String = "liteView"
+  static let titleAttributes: [NSAttributedString.Key: Any] =
+    [.font: NSFont.systemFont(ofSize: 12)]
 
   let statusItem = NSStatusBar.system
     .statusItem(withLength: NSStatusItem.squareLength)
@@ -20,21 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     initInterface()
   }
 
-  let titleAttributes: [NSAttributedString.Key: Any] =
-    [.font: NSFont.systemFont(ofSize: 12)]
-
-  func updateMenuBarSoc() {
+  func updateMenuBar() {
     if let button = statusItem.button {
       if let battery = BatteryFinder().getBattery() {
         if let soc = battery.charge {
           let attributedTitle = NSAttributedString(
             string: String(format: "%.0f%%", soc),
-            attributes: titleAttributes
+            attributes: AppDelegate.titleAttributes
           )
           button.attributedTitle = attributedTitle
 
+//          let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+//          image?.size = NSMakeSize(19.0, 19.0)
+//          button.image = image
+
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + 1
+          let newWidth = titleSize.width + 1 // 20
           statusItem.length = newWidth
         }
       }
@@ -45,9 +48,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     if let button = statusItem.button {
       button.action = #selector(togglePopover(_:))
 
-      updateMenuBarSoc()
+      updateMenuBar()
       _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
-        self.updateMenuBarSoc()
+        self.updateMenuBar()
       }
     }
 
