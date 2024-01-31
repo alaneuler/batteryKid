@@ -1,1 +1,14 @@
-
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>batteryKid</title>
+        <item>
+            <title>1.2</title>
+            <pubDate>Wed, 31 Jan 2024 18:14:21 +0800</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.1</sparkle:minimumSystemVersion>
+            <enclosure url="https://raw.githubusercontent.com/alaneuler/batteryKid/main/batteryKid.zip" length="1323817" type="application/octet-stream" sparkle:edSignature="a4FeWIxGZZ6gv/ywTo4nLQap9koI5QkRDl7tEksdqRQ0c9wYl7kx/YqZwb6X+KI3apo4mfZ4+hasB6ETD+meCA=="/>
+        </item>
+    </channel>
+</rss>
