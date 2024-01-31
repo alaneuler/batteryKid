@@ -1,4 +1,4 @@
-// AppDelegate.swift created on 2024/1/28.
+// AppDelegate.swift created on 2024/1/31.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
@@ -27,21 +27,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       if let battery = BatteryFinder().getBattery() {
         if let soc = battery.charge {
           let attributedTitle = NSAttributedString(
-            string: String(format: "%.0f%%", soc),
+            string: String(format: " %.0f%%", soc),
             attributes: AppDelegate.titleAttributes
           )
           button.attributedTitle = attributedTitle
 
-          let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-          resizeImage(image!, 19)
+          let image = NSImage(named: NSImage.Name(imageName(battery)))
+          resizeImage(image!, MenuBarIconWidth)
           button.image = image
 
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width +  20
+          let newWidth = titleSize.width + MenuBarIconWidth + 2
           statusItem.length = newWidth
         }
       }
     }
+  }
+
+  private func imageName(_ battery: Battery) -> String {
+    if let acPowered = battery.acPowered, acPowered {
+      if let charging = battery.isCharging, charging {
+        return "charging"
+      }
+      return "onhold"
+    }
+    return "discharging"
   }
 
   private func initInterface() {
@@ -49,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       button.action = #selector(togglePopover(_:))
 
       updateMenuBar()
-      _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+      _ = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { _ in
         self.updateMenuBar()
       }
     }
