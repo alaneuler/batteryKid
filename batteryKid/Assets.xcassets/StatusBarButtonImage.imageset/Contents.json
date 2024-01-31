@@ -16,6 +16,6 @@
   },
   "properties" : {
     "compression-type" : "gpu-optimized-best",
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "original"
   }
 }

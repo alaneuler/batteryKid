@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C0DFAB12B69F467002804C0 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DFAB02B69F467002804C0 /* CommonUtils.swift */; };
 		7C14C2F82B664D3B005FA484 /* UpdateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14C2F72B664D3B005FA484 /* UpdateSettings.swift */; };
 		7C2293542B664ECF006AA334 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2293532B664ECF006AA334 /* ViewConstants.swift */; };
 		7C2293572B664F12006AA334 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 7C2293562B664F12006AA334 /* LaunchAtLogin */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C0DFAB02B69F467002804C0 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		7C14C2F72B664D3B005FA484 /* UpdateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSettings.swift; sourceTree = "<group>"; };
 		7C2293532B664ECF006AA334 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		7C3CD36B2B66436800641A71 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
 				7C57386A2973D16600320731 /* EventMonitor.swift */,
+				7C0DFAB02B69F467002804C0 /* CommonUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				7C63FE8D2975818E009647F0 /* RemoteApplicationProtocol.swift in Sources */,
 				7CB8976829855A9700B0BF94 /* Battery.swift in Sources */,
 				7C63FE8729758053009647F0 /* HelperProtocol.swift in Sources */,
+				7C0DFAB12B69F467002804C0 /* CommonUtils.swift in Sources */,
 				7C3CD36E2B66440700641A71 /* SettingsController.swift in Sources */,
 				7C14C2F82B664D3B005FA484 /* UpdateSettings.swift in Sources */,
 				7C63FE9529758561009647F0 /* RemoteHelper.swift in Sources */,

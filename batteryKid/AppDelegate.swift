@@ -32,12 +32,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
           )
           button.attributedTitle = attributedTitle
 
-//          let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-//          image?.size = NSMakeSize(19.0, 19.0)
-//          button.image = image
+          let image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+          resizeImage(image!, 19)
+          button.image = image
 
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + 1 // 20
+          let newWidth = titleSize.width +  20
           statusItem.length = newWidth
         }
       }
