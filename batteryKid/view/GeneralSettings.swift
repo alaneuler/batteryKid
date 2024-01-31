@@ -1,4 +1,4 @@
-// GeneralSettings.swift created on 2024/1/28.
+// GeneralSettings.swift modified on 2024/1/31.
 // Copyright © 2024 Alaneuler.
 
 import LaunchAtLogin
@@ -10,7 +10,7 @@ struct GeneralSettingsPane: View {
   var displayTitle = "batteryKid"
 
   @AppStorage(PrefKey.LevelDeviation.rawValue)
-  var levelRange = 2
+  var levelDeviation = 2
 
   var body: some View {
     Settings.Container(contentWidth: 350) {
@@ -30,7 +30,7 @@ struct GeneralSettingsPane: View {
           .foregroundColor(.gray)
       }
       Settings.Section(title: "Limit Deviation:") {
-        TextField("", value: $levelRange, formatter: NumberFormatter())
+        TextField("", value: $levelDeviation, formatter: NumberFormatter())
           .frame(width: 30)
         Text("Only positive integer allowed")
           .frame(minWidth: 200, alignment: .leading)

@@ -1,4 +1,4 @@
-// CommonUtils.swift created on 2024/1/31.
+// CommonUtils.swift modified on 2024/1/31.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
