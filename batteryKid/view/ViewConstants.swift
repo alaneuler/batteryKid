@@ -3,5 +3,8 @@
 
 let MenuBarIconWidth = 13.0
 
-let DisplayTitleKey = "displayTitle"
-let LevelRangeKey = "levelRange"
+enum PrefKey: String {
+  case DisplayTitle
+  case LevelDeviation
+  case SUEnableAutomaticChecks
+}

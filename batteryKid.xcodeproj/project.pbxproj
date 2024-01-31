@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C0B40F72B6A420800C4BF3C /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0B40F62B6A420800C4BF3C /* Sparkle */; };
 		7C0DFAB12B69F467002804C0 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DFAB02B69F467002804C0 /* CommonUtils.swift */; };
 		7C14C2F82B664D3B005FA484 /* UpdateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14C2F72B664D3B005FA484 /* UpdateSettings.swift */; };
 		7C2293542B664ECF006AA334 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2293532B664ECF006AA334 /* ViewConstants.swift */; };
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0B40F72B6A420800C4BF3C /* Sparkle in Frameworks */,
 				7C2293572B664F12006AA334 /* LaunchAtLogin in Frameworks */,
 				7C3CD36A2B66435900641A71 /* Settings in Frameworks */,
 			);
@@ -237,6 +239,7 @@
 			packageProductDependencies = (
 				7C3CD3692B66435900641A71 /* Settings */,
 				7C2293562B664F12006AA334 /* LaunchAtLogin */,
+				7C0B40F62B6A420800C4BF3C /* Sparkle */,
 			);
 			productName = batteryKid;
 			productReference = 7C57385629739A9D00320731 /* batteryKid.app */;
@@ -289,6 +292,7 @@
 			packageReferences = (
 				7C3CD3682B66435900641A71 /* XCRemoteSwiftPackageReference "Settings" */,
 				7C2293552B664F12006AA334 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+				7C0B40F52B6A420800C4BF3C /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 7C57385729739A9D00320731 /* Products */;
 			projectDirPath = "";
@@ -494,7 +498,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4LPWYY854Q;
@@ -510,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.alaneuler.batteryKid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -528,7 +532,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4LPWYY854Q;
@@ -544,7 +548,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.alaneuler.batteryKid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -638,6 +642,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C0B40F52B6A420800C4BF3C /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.5.2;
+			};
+		};
 		7C2293552B664F12006AA334 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
@@ -657,6 +669,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7C0B40F62B6A420800C4BF3C /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C0B40F52B6A420800C4BF3C /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		7C2293562B664F12006AA334 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C2293552B664F12006AA334 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;

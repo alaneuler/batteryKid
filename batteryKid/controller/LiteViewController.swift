@@ -7,7 +7,7 @@ class LiteViewController: BaseViewController {
   static let USER_SET_LIMIT_VALUE_KEY: String = "user_set_limit_value"
 
   var deviation: Int {
-    UserDefaults.standard.integer(forKey: LevelRangeKey)
+    UserDefaults.standard.integer(forKey: PrefKey.LevelDeviation.rawValue)
   }
 
   @IBOutlet var sliderValue: NSTextField!
