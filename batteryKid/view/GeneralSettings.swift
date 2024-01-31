@@ -9,6 +9,9 @@ struct GeneralSettingsPane: View {
   @AppStorage(DisplayTitleKey)
   var displayTitle = "batteryKid"
 
+  @AppStorage(LevelRangeKey)
+  var levelRange = 2
+
   var body: some View {
     Settings.Container(contentWidth: 300) {
       Settings.Section(title: "Application:") {
@@ -23,6 +26,13 @@ struct GeneralSettingsPane: View {
             }
           }
         Text("Requires restart to take effect")
+          .frame(minWidth: 200, alignment: .leading)
+          .foregroundColor(.gray)
+      }
+      Settings.Section(title: "Limit Range:") {
+        TextField("", value: $levelRange, formatter: NumberFormatter())
+          .frame(width: 30)
+        Text("Only positive integer allowed")
           .frame(minWidth: 200, alignment: .leading)
           .foregroundColor(.gray)
       }

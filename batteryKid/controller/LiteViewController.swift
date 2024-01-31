@@ -4,8 +4,11 @@
 import Cocoa
 
 class LiteViewController: BaseViewController {
-  static let DEVIATION: Double = 2.0
   static let USER_SET_LIMIT_VALUE_KEY: String = "user_set_limit_value"
+
+  var deviation: Int {
+    UserDefaults.standard.integer(forKey: LevelRangeKey)
+  }
 
   @IBOutlet var sliderValue: NSTextField!
   @IBOutlet var slider: NSSlider!
@@ -68,8 +71,8 @@ class LiteViewController: BaseViewController {
     // Logger.info("Monitoring...")
     if let battery = BatteryFinder().getBattery() {
       if let soc = battery.charge {
-        let upLimit = chargeLimit + LiteViewController.DEVIATION
-        let bottomLimit = chargeLimit - LiteViewController.DEVIATION
+        let upLimit = chargeLimit + Double(deviation)
+        let bottomLimit = chargeLimit - Double(deviation)
         if soc > upLimit {
           // Disconnect the power adapter and disable charging.
           disablePowerAdapterAccordingly()
