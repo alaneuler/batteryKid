@@ -1,4 +1,4 @@
-// AppDelegate.swift created on 2024/1/28.
+// AppDelegate.swift created on 2024/1/31.
 // Copyright © 2024 Alaneuler.
 
 import Cocoa
@@ -8,6 +8,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   static let CURRENT_VIEW_CONTROLLER_KEY: String = "current_view_controller"
   static let PRO_VIEW_CONTROLLER: String = "proView"
   static let LITE_VIEW_CONTROLLER: String = "liteView"
+  static let titleAttributes: [NSAttributedString.Key: Any] =
+    [.font: NSFont.systemFont(ofSize: 12)]
 
   let statusItem = NSStatusBar.system
     .statusItem(withLength: NSStatusItem.squareLength)
@@ -20,34 +22,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     initInterface()
   }
 
-  let titleAttributes: [NSAttributedString.Key: Any] =
-    [.font: NSFont.systemFont(ofSize: 12)]
-
-  func updateMenuBarSoc() {
+  func updateMenuBar() {
     if let button = statusItem.button {
       if let battery = BatteryFinder().getBattery() {
         if let soc = battery.charge {
           let attributedTitle = NSAttributedString(
-            string: String(format: "%.0f%%", soc),
-            attributes: titleAttributes
+            string: String(format: " %.0f%%", soc),
+            attributes: AppDelegate.titleAttributes
           )
           button.attributedTitle = attributedTitle
 
+          let image = NSImage(named: NSImage.Name(imageName(battery)))
+          resizeImage(image!, MenuBarIconWidth)
+          button.image = image
+
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + 1
+          let newWidth = titleSize.width + MenuBarIconWidth + 2
           statusItem.length = newWidth
         }
       }
     }
   }
 
+  private func imageName(_ battery: Battery) -> String {
+    if let acPowered = battery.acPowered, acPowered {
+      if let charging = battery.isCharging, charging {
+        return "charging"
+      }
+      return "onhold"
+    }
+    return "discharging"
+  }
+
   private func initInterface() {
     if let button = statusItem.button {
       button.action = #selector(togglePopover(_:))
 
-      updateMenuBarSoc()
-      _ = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
-        self.updateMenuBarSoc()
+      updateMenuBar()
+      _ = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { _ in
+        self.updateMenuBar()
       }
     }
 

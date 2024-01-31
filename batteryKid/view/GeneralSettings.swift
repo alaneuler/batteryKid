@@ -6,11 +6,14 @@ import Settings
 import SwiftUI
 
 struct GeneralSettingsPane: View {
-  @AppStorage(DisplayTitleKey)
+  @AppStorage(PrefKey.DisplayTitle.rawValue)
   var displayTitle = "batteryKid"
 
+  @AppStorage(PrefKey.LevelDeviation.rawValue)
+  var levelRange = 2
+
   var body: some View {
-    Settings.Container(contentWidth: 300) {
+    Settings.Container(contentWidth: 350) {
       Settings.Section(title: "Application:") {
         LaunchAtLogin.Toggle("Start at Login")
       }
@@ -23,6 +26,13 @@ struct GeneralSettingsPane: View {
             }
           }
         Text("Requires restart to take effect")
+          .frame(minWidth: 200, alignment: .leading)
+          .foregroundColor(.gray)
+      }
+      Settings.Section(title: "Limit Deviation:") {
+        TextField("", value: $levelRange, formatter: NumberFormatter())
+          .frame(width: 30)
+        Text("Only positive integer allowed")
           .frame(minWidth: 200, alignment: .leading)
           .foregroundColor(.gray)
       }

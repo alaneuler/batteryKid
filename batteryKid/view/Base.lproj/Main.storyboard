@@ -332,7 +332,7 @@
         <image name="NSInfo" width="32" height="32"/>
         <image name="NSStopProgressFreestandingTemplate" width="20" height="20"/>
         <image name="battery" width="256" height="256"/>
-        <image name="bulbOn" width="237.5" height="237"/>
+        <image name="bulbOn" width="200" height="200"/>
         <image name="powerplug.fill" catalog="system" width="20" height="14"/>
     </resources>
 </document>

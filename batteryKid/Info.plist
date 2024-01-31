@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUPublicEDKey</key>
+	<string>zJh+keTjaGa3o2kMW54jNslph+syefzn9bPVDmiYUqU=</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/alaneuler/batteryKid/appcast/appcast.xml</string>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>me.alaneuler.batteryKid.PrivilegeHelper</key>
-		<string>identifier "me.alaneuler.batteryKid.PrivilegeHelper" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Zhi Xiong Zheng (MU6W95JQ7K)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier &quot;me.alaneuler.batteryKid.PrivilegeHelper&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Apple Development: Zhi Xiong Zheng (MU6W95JQ7K)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</dict>
 </dict>
 </plist>
