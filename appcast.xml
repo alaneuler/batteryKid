@@ -4,11 +4,11 @@
         <title>batteryKid</title>
         <item>
             <title>2.0</title>
-            <pubDate>Wed, 31 Jan 2024 19:04:06 +0800</pubDate>
+            <pubDate>Wed, 31 Jan 2024 19:44:56 +0800</pubDate>
             <sparkle:version>24</sparkle:version>
             <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.1</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/alaneuler/batteryKid/releases/download/v2.0/batteryKid.zip" length="1323309" type="application/octet-stream" sparkle:edSignature="onEIVehumrghwjRY+c8mQfTd3BNM+7H8v+W7wZpDd/9fgSmQ/d75MJwZ0WnFeWTT9LY6ZQCrsGzaxjr0uPGDAQ=="/>
+            <enclosure url="https://github.com/alaneuler/batteryKid/releases/download/v2.0/batteryKid.zip" length="1323297" type="application/octet-stream" sparkle:edSignature="qgk8fweM10BZJCKqWRPk+nIHleOVQOqUqYMeGhmg5m2C/1n0uwsjBnjm7PZ77zUqKzIyc/rUE0evX6bfC7HKCA=="/>
         </item>
     </channel>
 </rss>
