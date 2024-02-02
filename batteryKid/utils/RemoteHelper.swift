@@ -1,4 +1,4 @@
-// Copyright © 2024 Alaneuler.
+// Copyright © 2024 Alaneuler
 
 import Foundation
 import ServiceManagement
