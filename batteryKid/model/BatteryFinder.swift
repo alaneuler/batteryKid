@@ -1,4 +1,3 @@
-// BatteryFinder.swift modified on 2024/1/28.
 // Copyright © 2024 Alaneuler.
 
 // Source: https://stackoverflow.com/questions/57145091/swift-macos-batterylevel-property
