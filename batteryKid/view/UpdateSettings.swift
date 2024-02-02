@@ -1,4 +1,3 @@
-// UpdateSettings.swift modified on 2024/1/31.
 // Copyright © 2024 Alaneuler.
 
 import Settings
@@ -17,10 +16,11 @@ struct UpdateSettingsPane: View {
 
   var body: some View {
     Settings.Container(contentWidth: 350) {
-      // TODO:
-//      Settings.Section(title: "") {
-//        Toggle("Automatically check for updates", isOn: $automaticCheck)
-//      }
+      // TODO: Render issue here: https://github.com/sindresorhus/Settings/issues/117
+      // Wait it to be fixed.
+      Settings.Section(title: "") {
+        Toggle("Automatically check for updates", isOn: $automaticCheck)
+      }
       Settings.Section(title: "Current Version:") {
         Text(String(
           format: "%@ (Build %@)",
