@@ -1,6 +1,6 @@
 --allman false
 --indent 2
---header "Copyright © 2024 Alaneuler."
+--header "Copyright © 2024 Alaneuler"
 --self init-only
 --swiftversion 5
 --maxwidth 80
