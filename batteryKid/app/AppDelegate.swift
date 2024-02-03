@@ -31,26 +31,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
           )
           button.attributedTitle = attributedTitle
 
-          let image = NSImage(named: NSImage.Name(imageName(battery)))
-          resizeImage(image!, MenuBarIconWidth)
-          button.image = image
+//          var image = menuBarIcon(percent: soc / 100.0, innerImageName(battery))
+//          image = resizeImage(image, MenuBarIconWidth)
+//          button.image = image
 
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + MenuBarIconWidth + 2
+          let newWidth = titleSize.width + 2
           statusItem.length = newWidth
         }
       }
     }
   }
 
-  private func imageName(_ battery: Battery) -> String {
+  private func innerImageName(_ battery: Battery) -> String {
     if let acPowered = battery.acPowered, acPowered {
       if let charging = battery.isCharging, charging {
-        return "charging"
+        return "GreenInner"
       }
-      return "onhold"
+      return "BlueInner"
     }
-    return "discharging"
+    return "Inner"
   }
 
   private func initInterface() {
