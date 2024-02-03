@@ -25,11 +25,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     if let button = statusItem.button {
       if let battery = BatteryFinder().getBattery() {
         if let soc = battery.charge {
-          let attributedTitle = NSAttributedString(
-            string: String(format: " %.0f%%", soc),
-            attributes: AppDelegate.titleAttributes
-          )
-          button.attributedTitle = attributedTitle
+          var textWidth = 0.0
+          if UserDefaults.standard
+            .bool(forKey: PrefKey.DisplayBatteryPercentage.rawValue)
+          {
+            let attributedTitle = NSAttributedString(
+              string: String(format: " %.0f%%", soc),
+              attributes: AppDelegate.titleAttributes
+            )
+            button.attributedTitle = attributedTitle
+            textWidth = button.attributedTitle.size().width + 2
+          } else {
+            button.title = ""
+          }
 
           button.image = menuBarIcon(
             percent: soc / 100.0,
@@ -38,9 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             width: MenuBarIconWidth
           )
 
-          let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + MenuBarIconWidth + 2
-          statusItem.length = newWidth
+          statusItem.length = textWidth + MenuBarIconWidth
         }
       }
     }

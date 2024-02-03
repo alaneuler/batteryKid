@@ -11,10 +11,14 @@ struct GeneralSettingsPane: View {
   @AppStorage(PrefKey.LevelDeviation.rawValue)
   var levelDeviation = 2
 
+  @AppStorage(PrefKey.DisplayBatteryPercentage.rawValue)
+  var displayBatteryPercentage = false
+
   var body: some View {
     Settings.Container(contentWidth: 350) {
       Settings.Section(title: "Application:") {
         LaunchAtLogin.Toggle("Start at Login")
+        Toggle("Show Battery Percentage", isOn: $displayBatteryPercentage)
       }
       Settings.Section(title: "Display Title:") {
         TextField("batteryKid", text: $displayTitle)
