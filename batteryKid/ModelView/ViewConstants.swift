@@ -6,4 +6,5 @@ enum PrefKey: String {
   case DisplayTitle
   case LevelDeviation
   case SUEnableAutomaticChecks
+  case DisplayBatteryPercentage
 }
