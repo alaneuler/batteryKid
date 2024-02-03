@@ -31,26 +31,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
           )
           button.attributedTitle = attributedTitle
 
-//          var image = menuBarIcon(percent: soc / 100.0, innerImageName(battery))
-//          image = resizeImage(image, MenuBarIconWidth)
-//          button.image = image
+          button.image = menuBarIcon(
+            percent: soc / 100.0,
+            innerName: innerImageName(battery, button),
+            outerName: outerImageName(button),
+            width: MenuBarIconWidth
+          )
 
           let titleSize = button.attributedTitle.size()
-          let newWidth = titleSize.width + 2
+          let newWidth = titleSize.width + MenuBarIconWidth + 2
           statusItem.length = newWidth
         }
       }
     }
   }
 
-  private func innerImageName(_ battery: Battery) -> String {
+  private func innerImageName(_ battery: Battery,
+                              _ button: NSButton) -> String
+  {
     if let acPowered = battery.acPowered, acPowered {
       if let charging = battery.isCharging, charging {
-        return "GreenInner"
+        return "menubar/InnerGreen"
       }
-      return "BlueInner"
+      return "menubar/InnerBlue"
     }
-    return "Inner"
+    if isInLightMode(button) {
+      return "menubar/InnerBlack"
+    }
+    return "menubar/InnerWhite"
+  }
+
+  private func outerImageName(_ button: NSButton) -> String {
+    if isInLightMode(button) {
+      return "menubar/OuterBlack"
+    }
+    return "menubar/OuterWhite"
   }
 
   private func initInterface() {
@@ -58,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       button.action = #selector(togglePopover(_:))
 
       updateMenuBar()
-      _ = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { _ in
+      _ = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
         self.updateMenuBar()
       }
     }

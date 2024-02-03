@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C06326B2B6E179A002CAA12 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C06326A2B6E179A002CAA12 /* ImageUtils.swift */; };
 		7C0B40F72B6A420800C4BF3C /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0B40F62B6A420800C4BF3C /* Sparkle */; };
 		7C0DFAB12B69F467002804C0 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DFAB02B69F467002804C0 /* CommonUtils.swift */; };
 		7C14C2F82B664D3B005FA484 /* UpdateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14C2F72B664D3B005FA484 /* UpdateSettings.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C06326A2B6E179A002CAA12 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		7C0DFAB02B69F467002804C0 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		7C14C2F72B664D3B005FA484 /* UpdateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSettings.swift; sourceTree = "<group>"; };
 		7C2293532B664ECF006AA334 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				7C63FE9429758561009647F0 /* RemoteHelper.swift */,
 				7C57386A2973D16600320731 /* EventMonitor.swift */,
 				7C0DFAB02B69F467002804C0 /* CommonUtils.swift */,
+				7C06326A2B6E179A002CAA12 /* ImageUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				7C63FE8D2975818E009647F0 /* RemoteApplicationProtocol.swift in Sources */,
 				7CB8976829855A9700B0BF94 /* Battery.swift in Sources */,
 				7C63FE8729758053009647F0 /* HelperProtocol.swift in Sources */,
+				7C06326B2B6E179A002CAA12 /* ImageUtils.swift in Sources */,
 				7C0DFAB12B69F467002804C0 /* CommonUtils.swift in Sources */,
 				7C3CD36E2B66440700641A71 /* SettingsController.swift in Sources */,
 				7C14C2F82B664D3B005FA484 /* UpdateSettings.swift in Sources */,
