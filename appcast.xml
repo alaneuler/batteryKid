@@ -3,6 +3,21 @@
     <channel>
         <title>batteryKid</title>
         <item>
+            <title>2.1</title>
+            <pubDate>Sat, 03 Feb 2024 15:35:38 +0800</pubDate>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.1</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/alaneuler/batteryKid/releases/download/v2.1/batteryKid.zip" length="1287655" type="application/octet-stream" sparkle:edSignature="YF0NyLEdy1/f7/AUC9ttMPt38H4UjNVSxR12cj2wZ9qMOVLIeT7sOFX/hJZ7QmH+Iv/wMxEFvdjzLvh5FaNhAA=="/>
+            <description><![CDATA[
+<ul>
+    <li>New menu bar icon (blue for on-hold, green for charging, others for discharging)</li>
+    <li>Toggle for whether to display battery percentage</li>
+</ul>
+]]>
+</description>
+        </item>
+        <item>
             <title>2.0</title>
             <pubDate>Wed, 31 Jan 2024 19:44:56 +0800</pubDate>
             <sparkle:version>24</sparkle:version>
