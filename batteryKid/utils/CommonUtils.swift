@@ -2,11 +2,6 @@
 
 import Cocoa
 
-func resizeImage(_ image: NSImage, _ newWidth: Double) {
-  let ratio = image.size.width / newWidth
-  image.size = NSSize(width: newWidth, height: image.size.height / ratio)
-}
-
 func getAppVersion() -> String {
   if let version = getAppInfo(key: "CFBundleShortVersionString") {
     return version
