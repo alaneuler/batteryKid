@@ -20,10 +20,13 @@ batteryKid has two modes:
 
 ## Screenshot
 ### Lite Mode
-<img width="350" alt="image" src="screenshots/lite-mode.png">
+<img width="346" alt="image" src="https://github.com/alaneuler/batteryKid/assets/8054939/dc87697f-9759-4c0f-afc0-f51c18608877">
 
 ### Pro Mode
-<img width="350" alt="image" src="screenshots/pro-mode.png">
+<img width="317" alt="image" src="https://github.com/alaneuler/batteryKid/assets/8054939/b0494311-4d1c-4551-a6c6-3f7a4d17f994">
+
+### Settings
+<img width="522" alt="image" src="https://github.com/alaneuler/batteryKid/assets/8054939/b8153d5a-245b-492b-a6ba-1bc865260b4d">
 
 ## Uninstalling
 1. Quit the app from menu bar
