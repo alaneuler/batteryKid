@@ -38,13 +38,11 @@ sudo rm -rf /Library/LaunchDaemons/me.alaneuler.batteryKid.PrivilegeHelper.plist
 sudo rm -rf /Library/PrivilegedHelperTools/me.alaneuler.batteryKid.PrivilegeHelper
 ```
 
-## TODO
-- [ ] Uninstall and about menu
-- [ ] Support clamshell mode
-
 ## Projects Used
 - [SMCKit](https://github.com/beltex/SMCKit)
 - [SMJobBlessUtil-python3.py](https://gist.github.com/mikeyh/89a1e2ecc6849ff6056b7391c5216799)
+- [Settings](https://github.com/sindresorhus/Settings)
+- [Sparkle 2](https://github.com/sparkle-project/Sparkle/)
 
 ## Disclaimer
 I do not take any responsibility for any sort of damage that may occur from using this tool!
