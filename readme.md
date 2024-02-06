@@ -9,7 +9,7 @@ This small menubar tool can assist in maintaining the battery health of your Mac
 It is free and open-source and will remain that way in the future.
 
 batteryKid has two modes:
-1. **Lite Mode** (Recommended): this mode maintains the SoC (State of Charge) within a range of ±2% for the user-selected value.
+1. **Lite Mode** (Recommended): this mode maintains the SoC (State of Charge) at the user-selected value.
 2. **Pro Mode**: this mode exposes the switches utilized by the lite mode.
    - Charging switch
    - Power source (AC) switch
