@@ -255,16 +255,16 @@
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6eJ-ta-OIr">
-                                <rect key="frame" x="13" y="15" width="54" height="16"/>
+                                <rect key="frame" x="13" y="14" width="108" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Status: " id="pbJ-4i-nhK">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Desired Status: " id="pbJ-4i-nhK">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-cq-xfa">
-                                <rect key="frame" x="67" y="15" width="72" height="15"/>
+                                <rect key="frame" x="120" y="14" width="72" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Unknown" id="NKE-o0-2M5">
                                     <font key="font" metaFont="cellTitle"/>
